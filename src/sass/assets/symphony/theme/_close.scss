@@ -1,0 +1,10 @@
+.btn-close {
+  width: auto;
+  height: auto;
+  font-size: rfs-value(20px);
+  background: none;
+  @include fa-icon-regular($fa-var-xmark);
+  &:focus {
+    box-shadow: $btn-close-shadow, $btn-close-focus-shadow;
+  }
+}

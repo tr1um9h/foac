@@ -1,0 +1,67 @@
+@import "../assets/bootstrap5/variables";
+@import "../assets/bootstrap5/maps";
+@import "../assets/bootstrap5/utilities";
+@import "../assets/bootstrap5/vendor/rfs";
+
+$box-shadow-sm:   0 rfs-value(2px) rfs-value(8px) rgba($black, .12);
+$box-shadow:      0 rfs-value(2px) rfs-value(12px) rgba($black, .16);
+$box-shadow-lg:   0 rfs-value(2px) rfs-value(16px) rgba($black, .24);
+$box-shadow-xl:   0 rfs-value(2px) rfs-value(20px) rgba($black, .32);
+$box-shadow-xxl:  0 rfs-value(2px) rfs-value(32px) rgba($black, .04);
+$box-shadow-xxxl: 0 rfs-value(2px) rfs-value(32px) rgba($black, .16);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "shadow": map-merge(
+      map-get($utilities, "shadow"),
+      (
+        class: elevation,
+        values: map-merge(
+          map-get(map-get($utilities, "shadow"), "values"),
+          (
+            null: null,
+            sm: null,
+            lg: null,
+            1: $box-shadow-sm,
+            2: $box-shadow,
+            3: $box-shadow-lg,
+            4: $box-shadow-xl,
+            5: $box-shadow-xxl,
+            6: $box-shadow-xxxl
+          )
+        )
+      )
+    )
+  )
+);
+
+$all-colors: map-merge-multiple($denims, $electrics, $jades, $lemon-limes, $tangerines, $doves, $dangers, $interactives, $warnings);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "color": map-merge(
+      map-get($utilities, "color"),
+      (
+        values: map-merge(
+          map-get(map-get($utilities, "color"), "values"),
+          (
+            $all-colors
+          ),
+        ),
+      ),
+    ),
+    "background-color": map-merge(
+      map-get($utilities, "background-color"),
+      (
+        values: map-merge(
+          map-get(map-get($utilities, "background-color"), "values"),
+          (
+            $all-colors
+          ),
+        ),
+      ),
+    ),
+  )
+);

@@ -1,0 +1,17 @@
+//stylelint-disable-next-line selector-no-qualifying-type
+section.disclaimer {
+  text-align: center;
+  h4 {
+    @include margin-bottom($spacer * 2);
+    text-align: center;
+  }
+  p {
+    margin-bottom: 0;
+    font-size: $font-size-lg;
+    //stylelint-disable-next-line selector-max-type
+    a {
+      font-weight: $font-weight-medium;
+      color: $interactive;
+    }
+  }
+}

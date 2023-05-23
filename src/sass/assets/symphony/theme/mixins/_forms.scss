@@ -1,0 +1,57 @@
+@mixin form-validation-state(
+  $state,
+  $color,
+  $icon,
+  $tooltip-color: color-contrast($color),
+  $tooltip-bg-color: rgba($color, $form-feedback-tooltip-opacity),
+  $box-shadow: $input-box-shadow,
+  $focus-box-shadow: $input-btn-focus-box-shadow
+) {
+  .form-control,
+  .form-select {
+    @include form-validation-state-selector($state) {
+      ~ label {
+        color: $color;
+      }
+      &:focus {
+        box-shadow: $box-shadow, $focus-box-shadow;
+      }
+    }
+  }
+
+  .form-select {
+    @include form-validation-state-selector($state) {
+      color: $color;
+
+      option {
+        color: $form-select-color;
+      }
+
+      &:focus {
+        box-shadow: $box-shadow, $focus-box-shadow;
+      }
+    }
+  }
+
+
+  @include form-validation-state-selector($state) {
+    ~ label .#{$state}-feedback
+    {
+      display: inline;
+      font-size: revert;
+    }
+  }
+
+  .form-check-input {
+    @include form-validation-state-selector($state) {
+      ~ .form-check-label {
+        color: revert;
+        border-color: $color;
+      }
+
+      &:focus {
+        box-shadow: $box-shadow, $focus-box-shadow;
+      }
+    }
+  }
+}

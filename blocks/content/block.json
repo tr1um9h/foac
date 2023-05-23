@@ -1,0 +1,30 @@
+{
+  "name": "foac/content",
+  "title": "Content",
+  "description": "",
+  "style": "",
+  "script": "",
+  "category": "foac-blocks",
+  "icon": "carrot",
+  "apiVersion": 2,
+  "keywords": [],
+  "acf": {
+    "mode": "edit",
+    "renderTemplate": "content.php"
+  },
+  "styles": [],
+  "supports": {
+    "align": false,
+    "anchor": true,
+    "alignContent": false,
+    "color": {
+      "text": false,
+      "background": true,
+      "link": false
+    },
+    "alignText": false,
+    "fullHeight": false
+  },
+  "attributes": {
+  }
+}

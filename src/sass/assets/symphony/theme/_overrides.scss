@@ -1,0 +1,499 @@
+@import "../assets/bootstrap5/functions";
+
+$enable-shadows: true;
+$enable-validation-icons: false;
+
+$fa-font-path: "../../../fonts" !default;
+
+// Font
+$font-size-base: 1rem;
+$font-size-lg: $font-size-base * 1.125;
+
+$font-family-base: "Gotham SSm A", "Gotham SSm B";
+$font-family-code: "Gotham SSm A", "Gotham SSm B";
+
+$font-weight-medium: 500;
+$font-weight-black: 800;
+
+// Border Radius
+$border-radius: .625rem !default;
+$border-radius-sm: .5rem !default;
+$border-radius-lg: .75rem !default;
+$border-radius-xl: .875rem !default;
+$border-radius-2xl: 1rem !default;
+
+// Colors
+$denim:      #003b5c;
+$blue:       #0062af;
+$focus-blue: #0082fa;
+$electric:   #00a9e0;
+$jade:       #56c271;
+$yellow:     #efb805;
+$red:        #b50505;
+$gray:       #9e9e9e;
+$lemon-lime: #d6e865;
+$tangerine:  #ff7f32;
+$yellow:     #efb805;
+$red:        #b50505;
+$dove:       #d9d9d6;
+
+$white:    #fff;
+$gray-25:  tint-color($gray, 95%);
+$gray-50:  tint-color($gray, 90%);
+$gray-100: tint-color($gray, 80%);
+$gray-200: tint-color($gray, 60%);
+$gray-300: tint-color($gray, 40%);
+$gray-400: tint-color($gray, 20%);
+$gray-500: $gray;
+$gray-600: shade-color($gray, 20%);
+$gray-700: shade-color($gray, 40%);
+$gray-800: shade-color($gray, 60%);
+$gray-900: shade-color($gray, 80%);
+$black:    #000;
+
+// Theme Colors
+$primary:       $denim;
+$secondary:     $electric;
+$success:       $jade;
+$interactive:   $blue;
+$warning:       $yellow;
+$danger:        $red;
+$light:         $white;
+$dark:          $gray-900;
+
+$theme-colors: (
+  "primary":     $primary,
+  "secondary":   $secondary,
+  "success":     $success,
+  "warning":     $warning,
+  "danger":      $danger,
+  "light":       $light,
+  "dark":        $dark,
+  "interactive":  $interactive,
+  "denim":        $denim,
+  "jade":         $jade,
+  "focus":        $focus-blue,
+  "white":        $light,
+);
+
+// Color variants
+$denim-50:  tint-color($denim, 90%);
+$denim-100: tint-color($denim, 80%);
+$denim-200: tint-color($denim, 60%);
+$denim-300: tint-color($denim, 40%);
+$denim-400: tint-color($denim, 20%);
+$denim-425: tint-color($denim, 15%);
+$denim-500: $denim;
+$denim-600: shade-color($denim, 20%);
+$denim-700: shade-color($denim, 40%);
+$denim-800: shade-color($denim, 60%);
+$denim-900: shade-color($denim, 80%);
+
+$electric-50:  tint-color($electric, 90%);
+$electric-100: tint-color($electric, 80%);
+$electric-200: tint-color($electric, 60%);
+$electric-300: tint-color($electric, 40%);
+$electric-400: tint-color($electric, 20%);
+$electric-425: tint-color($electric, 15%);
+$electric-500: $electric;
+$electric-600: shade-color($electric, 20%);
+$electric-700: shade-color($electric, 40%);
+$electric-800: shade-color($electric, 60%);
+$electric-900: shade-color($electric, 80%);
+
+$jade-50:  tint-color($jade, 90%);
+$jade-100: tint-color($jade, 80%);
+$jade-200: tint-color($jade, 60%);
+$jade-300: tint-color($jade, 40%);
+$jade-400: tint-color($jade, 20%);
+$jade-425: tint-color($jade, 15%);
+$jade-500: $jade;
+$jade-600: shade-color($jade, 20%);
+$jade-700: shade-color($jade, 40%);
+$jade-800: shade-color($jade, 60%);
+$jade-900: shade-color($jade, 80%);
+
+$lemon-lime-50:  tint-color($lemon-lime, 90%);
+$lemon-lime-100: tint-color($lemon-lime, 80%);
+$lemon-lime-200: tint-color($lemon-lime, 60%);
+$lemon-lime-300: tint-color($lemon-lime, 40%);
+$lemon-lime-400: tint-color($lemon-lime, 20%);
+$lemon-lime-425: tint-color($lemon-lime, 15%);
+$lemon-lime-500: $lemon-lime;
+$lemon-lime-600: shade-color($lemon-lime, 20%);
+$lemon-lime-700: shade-color($lemon-lime, 40%);
+$lemon-lime-800: shade-color($lemon-lime, 60%);
+$lemon-lime-900: shade-color($lemon-lime, 80%);
+
+$tangerine-50:  tint-color($tangerine, 90%);
+$tangerine-100: tint-color($tangerine, 80%);
+$tangerine-200: tint-color($tangerine, 60%);
+$tangerine-300: tint-color($tangerine, 40%);
+$tangerine-400: tint-color($tangerine, 20%);
+$tangerine-425: tint-color($tangerine, 15%);
+$tangerine-500: $tangerine;
+$tangerine-600: shade-color($tangerine, 20%);
+$tangerine-700: shade-color($tangerine, 40%);
+$tangerine-800: shade-color($tangerine, 60%);
+$tangerine-900: shade-color($tangerine, 80%);
+
+$dove-50:  tint-color($dove, 90%);
+$dove-100: tint-color($dove, 80%);
+$dove-200: tint-color($dove, 60%);
+$dove-300: tint-color($dove, 40%);
+$dove-400: tint-color($dove, 20%);
+$dove-425: tint-color($dove, 15%);
+$dove-500: $dove;
+$dove-600: shade-color($dove, 20%);
+$dove-700: shade-color($dove, 40%);
+$dove-800: shade-color($dove, 60%);
+$dove-900: shade-color($dove, 80%);
+
+$danger-50:  tint-color($danger, 90%);
+$danger-100: tint-color($danger, 80%);
+$danger-200: tint-color($danger, 60%);
+$danger-300: tint-color($danger, 40%);
+$danger-400: tint-color($danger, 20%);
+$danger-425: tint-color($danger, 15%);
+$danger-500: $danger;
+$danger-600: shade-color($danger, 20%);
+$danger-700: shade-color($danger, 40%);
+$danger-800: shade-color($danger, 60%);
+$danger-900: shade-color($danger, 80%);
+
+$interactive-50:  tint-color($interactive, 90%);
+$interactive-100: tint-color($interactive, 80%);
+$interactive-200: tint-color($interactive, 60%);
+$interactive-300: tint-color($interactive, 40%);
+$interactive-400: tint-color($interactive, 20%);
+$interactive-425: tint-color($interactive, 15%);
+$interactive-500: $interactive;
+$interactive-625: shade-color($interactive, 15%);
+$interactive-600: shade-color($interactive, 20%);
+$interactive-700: shade-color($interactive, 40%);
+$interactive-800: shade-color($interactive, 60%);
+$interactive-900: shade-color($interactive, 80%);
+
+$warning-50:  tint-color($warning, 90%);
+$warning-100: tint-color($warning, 80%);
+$warning-200: tint-color($warning, 60%);
+$warning-300: tint-color($warning, 40%);
+$warning-400: tint-color($warning, 20%);
+$warning-425: tint-color($warning, 15%);
+$warning-500: $warning;
+$warning-600: shade-color($warning, 20%);
+$warning-700: shade-color($warning, 40%);
+$warning-800: shade-color($warning, 60%);
+$warning-900: shade-color($warning, 80%);
+
+$grays: (
+  "25":  $gray-25,
+  "50":  $gray-50,
+  "100": $gray-100,
+  "200": $gray-200,
+  "300": $gray-300,
+  "400": $gray-400,
+  "500": $gray-500,
+  "600": $gray-600,
+  "700": $gray-700,
+  "800": $gray-800,
+  "900": $gray-900
+);
+
+$denims: (
+  "denim-50":  $denim-50,
+  "denim-100": $denim-100,
+  "denim-200": $denim-200,
+  "denim-300": $denim-300,
+  "denim-400": $denim-400,
+  "denim-425": $denim-425,
+  "denim-500": $denim-500,
+  "denim-600": $denim-600,
+  "denim-700": $denim-700,
+  "denim-800": $denim-800,
+  "denim-900": $denim-900
+);
+
+$electrics: (
+  "electric-50":  $electric-50,
+  "electric-100": $electric-100,
+  "electric-200": $electric-200,
+  "electric-300": $electric-300,
+  "electric-400": $electric-400,
+  "electric-425": $electric-425,
+  "electric-500": $electric-500,
+  "electric-600": $electric-600,
+  "electric-700": $electric-700,
+  "electric-800": $electric-800,
+  "electric-900": $electric-900
+);
+
+$jades: (
+  "jade-50":  $jade-50,
+  "jade-100": $jade-100,
+  "jade-200": $jade-200,
+  "jade-300": $jade-300,
+  "jade-400": $jade-400,
+  "jade-425": $jade-425,
+  "jade-500": $jade-500,
+  "jade-600": $jade-600,
+  "jade-700": $jade-700,
+  "jade-800": $jade-800,
+  "jade-900": $jade-900
+);
+
+$lemon-limes: (
+  "lemon-lime-50":  $lemon-lime-50,
+  "lemon-lime-100": $lemon-lime-100,
+  "lemon-lime-200": $lemon-lime-200,
+  "lemon-lime-300": $lemon-lime-300,
+  "lemon-lime-400": $lemon-lime-400,
+  "lemon-lime-425": $lemon-lime-425,
+  "lemon-lime-500": $lemon-lime-500,
+  "lemon-lime-600": $lemon-lime-600,
+  "lemon-lime-700": $lemon-lime-700,
+  "lemon-lime-800": $lemon-lime-800,
+  "lemon-lime-900": $lemon-lime-900
+);
+
+$tangerines: (
+  "tangerine-50":  $tangerine-50,
+  "tangerine-100": $tangerine-100,
+  "tangerine-200": $tangerine-200,
+  "tangerine-300": $tangerine-300,
+  "tangerine-400": $tangerine-400,
+  "tangerine-425": $tangerine-425,
+  "tangerine-500": $tangerine-500,
+  "tangerine-600": $tangerine-600,
+  "tangerine-700": $tangerine-700,
+  "tangerine-800": $tangerine-800,
+  "tangerine-900": $tangerine-900
+);
+
+$doves: (
+  "dove-50":  $dove-50,
+  "dove-100": $dove-100,
+  "dove-200": $dove-200,
+  "dove-300": $dove-300,
+  "dove-400": $dove-400,
+  "dove-425": $dove-425,
+  "dove-500": $dove-500,
+  "dove-600": $dove-600,
+  "dove-700": $dove-700,
+  "dove-800": $dove-800,
+  "dove-900": $dove-900
+);
+
+$dangers: (
+  "danger-50":  $danger-50,
+  "danger-100": $danger-100,
+  "danger-200": $danger-200,
+  "danger-300": $danger-300,
+  "danger-400": $danger-400,
+  "danger-425": $danger-425,
+  "danger-500": $danger-500,
+  "danger-600": $danger-600,
+  "danger-700": $danger-700,
+  "danger-800": $danger-800,
+  "danger-900": $danger-900
+);
+
+$interactives: (
+  "interactive-50":  $interactive-50,
+  "interactive-100": $interactive-100,
+  "interactive-200": $interactive-200,
+  "interactive-300": $interactive-300,
+  "interactive-400": $interactive-400,
+  "interactive-425": $interactive-425,
+  "interactive-500": $interactive-500,
+  "interactive-625": $interactive-625,
+  "interactive-600": $interactive-600,
+  "interactive-700": $interactive-700,
+  "interactive-800": $interactive-800,
+  "interactive-900": $interactive-900
+);
+
+$warnings: (
+  "warning-50":  $warning-50,
+  "warning-100": $warning-100,
+  "warning-200": $warning-200,
+  "warning-300": $warning-300,
+  "warning-400": $warning-400,
+  "warning-425": $warning-425,
+  "warning-500": $warning-500,
+  "warning-600": $warning-600,
+  "warning-700": $warning-700,
+  "warning-800": $warning-800,
+  "warning-900": $warning-900
+);
+
+$colors: (
+  "denim":       $denim,
+  "electric":    $electric,
+  "jade":        $jade,
+  "lemone-lime": $lemon-lime,
+  "tangerine":   $tangerine,
+  "dove":        $dove,
+  "yellow":      $yellow,
+  "red":         $red,
+  "black":       $black,
+  "white":       $white,
+  "gray":        $gray-600,
+  "gray-dark":   $gray-800
+);
+
+// Body
+$body-color: $gray-900;
+
+// Grid breakpoints
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+  xxxl: 1600px
+);
+
+// Grid containers
+$container-max-widths: (
+  xs: 100%,
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1320px,
+  xxxl: 1510px
+);
+
+// Headings
+$headings-color: $gray-800;
+$headings-font-family: "Gotham A", "Gotham B";
+$headings-font-weight: $font-weight-black;
+
+// Display Headings
+$display-font-family: "Gotham A", "Gotham B";
+$display-font-weight: $font-weight-black;
+$display-line-height: 1.1 !default;
+
+$display-font-sizes: (
+  1: 7.5rem,
+  2: 5rem,
+  3: 3.5rem,
+);
+
+// Tables
+$table-bg-scale: -80% !default;
+
+$table-variants: (
+  "primary":    shift-color($primary, $table-bg-scale),
+  "secondary":  shift-color($secondary, $table-bg-scale),
+  "success":    shift-color($success, $table-bg-scale),
+  "warning":    shift-color($warning, $table-bg-scale),
+  "danger":     shift-color($danger, $table-bg-scale),
+  "light":      $light,
+  "dark":       $dark,
+  "interactive": shift-color($interactive, $table-bg-scale),
+);
+
+// Alerts
+$alert-border-scale: -80%;
+$alert-padding-y: .6875rem;
+$alert-padding-x: .875rem;
+$alert-border-radius: $border-radius;
+$alert-dismissible-padding-r: $alert-padding-x * 2.25;
+$alert-border-width: .13rem;
+
+// Buttons + Forms
+//
+// Shared variables that are reassigned to `$input-` and `$btn-` specific variables.
+$input-btn-padding-y:         .375rem;
+$input-btn-padding-x:         .875rem;
+$input-btn-padding-y-sm:      .21875rem;
+$input-btn-padding-x-sm:      .75rem;
+$input-btn-padding-y-lg:      .53125rem;
+$input-btn-padding-x-lg:      1rem;
+$input-btn-border-width:      .125rem;
+$input-btn-focus-color:       $focus-blue;
+$input-btn-focus-width:       .25rem;
+$input-btn-focus-blur:        0 !default;
+$input-btn-focus-box-shadow:  0 0 $input-btn-focus-blur $input-btn-focus-width $input-btn-focus-color;
+$input-box-shadow:            0 0 $input-btn-focus-blur .0625rem $white;
+
+// Buttons
+$btn-box-shadow:        $input-box-shadow;
+$btn-active-box-shadow: none;
+$btn-close-opacity:     1;
+$btn-close-color:       $body-color;
+$btn-font-weight:       $font-weight-medium;
+
+// Form inputs
+$input-color:                 $black;
+$input-border-color:          $gray-600;
+$input-placeholder-color:     $gray-600;
+$input-focus-border-color:    $interactive;
+$input-disabled-border-color: $gray-300;
+
+// Form feedback
+$form-feedback-invalid-color:       $danger;
+$form-feedback-icon-invalid-color:  $form-feedback-invalid-color;
+
+$form-validation-states: (
+  "invalid": (
+    "color": $form-feedback-invalid-color,
+    "icon": none
+  )
+);
+
+// Form checks
+$form-check-transition:                         box-shadow .15s ease-in-out;
+$form-check-input-width:                        2em;
+$form-check-margin-bottom:                      1.5rem;
+$form-check-padding-start:                      $form-check-input-width + 1em;
+$form-check-input-border:                       .125rem solid $gray-600;
+$form-check-input-checked-bg-color:             $interactive;
+$form-check-input-focus-border:                 .125rem solid $gray-600;
+$form-check-input-disabled-opacity:             1;
+$form-check-label-disabled-opacity:             1;
+$form-check-input-checked-bg-image:             url('data:image/svg+xml,<svg viewBox="-4 0 30 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21.0312 0.96875C21.6406 1.53125 21.6406 2.51562 21.0312 3.07812L9.03125 15.0781C8.46875 15.6875 7.48438 15.6875 6.92188 15.0781L0.921875 9.07812C0.3125 8.51562 0.3125 7.53125 0.921875 6.96875C1.48438 6.35938 2.46875 6.35938 3.03125 6.96875L7.95312 11.8906L18.9219 0.96875C19.4844 0.359375 20.4688 0.359375 21.0312 0.96875Z" fill="white"/></svg>');
+$form-check-input-checked-color:                $interactive;
+$form-check-input-radio-bg-color:               $white;
+$form-check-radio-checked-bg-image:             url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='2' fill='#{$form-check-input-checked-color}'/></svg>");
+
+// Form selects
+$form-select-padding-x: .875rem;
+$form-select-padding-y: .375rem;
+$form-select-padding-x-sm: .75rem;
+$form-select-padding-y-sm: .1875rem;
+$form-select-padding-x-lg: 1rem;
+$form-select-padding-y-lg: .5rem;
+$form-select-color: $black;
+$form-select-disabled-color: $gray-700;
+$form-select-disabled-bg: $gray-50;
+$form-select-box-shadow: $input-box-shadow;
+
+// Form floating inputs
+$form-floating-height: 3.5rem;
+$form-floating-padding-y: .9375rem;
+$form-floating-label-opacity: 1;
+$form-floating-padding-x: 1rem;
+$form-floating-input-padding-t: 1.625rem;
+$form-floating-input-padding-b: .375rem;
+$form-floating-label-transform:  scale(.8125) translateY(-.8rem) translateX(.3rem);
+
+// Tooltips
+$tooltip-bg:                        $dark;
+$tooltip-border-radius:             .3rem;
+$tooltip-opacity:                   1;
+$tooltip-arrow-width:               .75rem;
+$tooltip-arrow-height:              .375rem;
+
+// Popovers
+$popover-font-size:                 $font-size-base;
+$popover-border-color:              $gray-100;
+$popover-border-radius:             $border-radius-lg;
+
+// Spinners
+$spinner-width: 3rem;
+$spinner-width-sm: 1.5rem;

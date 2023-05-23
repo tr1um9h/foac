@@ -1,0 +1,7 @@
+.form-control {
+  @include box-shadow(none);
+}
+
+.form-control-lg {
+  @include font-size($input-font-size-lg);
+}

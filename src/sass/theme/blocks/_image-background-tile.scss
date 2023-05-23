@@ -1,0 +1,51 @@
+.image-background-tile {
+  h1 {
+    text-align: center;
+    @include margin-bottom($spacer * 4.5);
+  }
+
+  .row .col-md-6 {
+    &:last-child {
+      .tile-holder {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .tile-holder {
+    position: relative;
+    color: $white;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    @include padding($spacer * 4 $spacer * 4 $spacer * 4.375);
+    @include border-radius($border-radius-3xl);
+
+    @include media-breakpoint-down(md) {
+      margin-bottom: ($spacer * 3.75);
+    }
+
+    h3 {
+      color: $white;
+      @include margin-bottom($spacer);
+    }
+
+    p {
+      width: 80%;
+      margin-bottom: 0;
+      font-weight: $font-weight-medium;
+      @include media-breakpoint-down(lg) {
+        width: 100%;
+      }
+    }
+
+    a {
+      position: absolute;
+      bottom: -20px;
+      @include media-breakpoint-down(md) {
+        //stylelint-disable-next-line function-disallowed-list
+        width: calc(100% - 78px);
+      }
+    }
+  }
+}

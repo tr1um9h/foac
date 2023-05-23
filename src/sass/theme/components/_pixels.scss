@@ -1,0 +1,121 @@
+.triangle-pixel {
+  position: absolute;
+  top: 86vh;
+  left: 0;
+  z-index: -2;
+  width: 400px;
+  height: 650px;
+  content: "";
+  background-image: url($triangle-pixel);
+  background-repeat: no-repeat;
+  background-size: contain;
+  @include media-breakpoint-down(md) {
+    width: 110px;
+    height: 190px;
+  }
+}
+.gray-pixel {
+  position: absolute;
+  top: 150vh;
+  right: -100px;
+  z-index: -2;
+  width: 400px;
+  height: 510px;
+  content: "";
+  background-image: url($gray-pixel);
+  background-repeat: no-repeat;
+  background-size: contain;
+  @include media-breakpoint-down(md) {
+    right: rfs-value(-30px);
+    width: 110px;
+    height: 150px;
+  }
+}
+.chevron-pixel {
+  position: absolute;
+  right: -180px;
+  bottom: 0;
+  z-index: -2;
+  width: 400px;
+  height: 600px;
+  content: "";
+  background-image: url($chevron-pixel);
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: contain;
+  @include media-breakpoint-down(md) {
+    right: -45px;
+    width: 110px;
+    height: 170px;
+  }
+}
+
+.page-home {
+  .triangle-pixel {
+    top: 100vh;
+  }
+}
+
+.page-partners {
+  .gray-pixel {
+    top: 95vh;
+    @include media-breakpoint-down(md) {
+      top: 135vh;
+    }
+  }
+}
+
+.page-brokers {
+  .chevron-pixel {
+    left: -150px;
+    transform: rotateY(-180deg);
+    @include media-breakpoint-down(md) {
+      left: -35px;
+    }
+  }
+}
+
+.page-contactors {
+  .triangle-pixel {
+    top: 106vh;
+  }
+}
+
+.page-financial-advisors {
+  .gray-pixel {
+    top: 100vh;
+  }
+}
+
+.page-esg {
+  .gray-pixel {
+    top: 55vh;
+    @include media-breakpoint-down(md) {
+      top: 70vh;
+    }
+  }
+}
+
+.page-about-us {
+  .gray-pixel {
+    top: inherit;
+    bottom: -10vh;
+  }
+}
+
+.page-careers {
+  .triangle-pixel {
+    top: inherit;
+    right: 0;
+    bottom: 10vh;
+    left: inherit;
+    transform: scaleX(-1);
+  }
+}
+
+.page-dei {
+  .triangle-pixel {
+    top: inherit;
+    bottom: 30vh;
+  }
+}

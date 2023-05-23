@@ -1,0 +1,41 @@
+.spinner-border {
+  position: relative;
+  box-sizing: border-box;
+  aspect-ratio: 1;
+  background: currentcolor; /* the color */
+  border: var(--#{$prefix}spinner-border-width) solid transparent;
+  @include border-radius($border-radius-pill);
+  // stylelint-disable-next-line property-no-vendor-prefix
+  -webkit-mask: conic-gradient(#0000, #000), linear-gradient(#000 0 0) content-box;
+  // stylelint-disable-next-line property-no-vendor-prefix
+  -webkit-mask-composite: source-out;
+  mask-composite: subtract;
+}
+
+.spinner-border-lg {
+  // scss-docs-start spinner-border-sm-css-vars
+  --#{$prefix}spinner-width: #{$spinner-width-lg};
+  --#{$prefix}spinner-height: #{$spinner-height-lg};
+  --#{$prefix}spinner-border-width: #{$spinner-border-width-lg};
+  // scss-docs-end spinner-border-sm-css-vars
+}
+
+.spinner-holder {
+  width: fit-content;
+  min-height: $spinner-height;
+  padding: rfs-value(8px) rfs-value(8px) rfs-value(3.75px) rfs-value(8px);
+  background-color: $white;
+  @include border-radius($border-radius-pill);
+  box-shadow: $box-shadow;
+  .spinner-border-sm {
+    margin-bottom: rfs-value(-.25px);
+  }
+}
+.spinner-holder-sm {
+  min-height: $spinner-height-sm;
+  padding: rfs-value(4px) rfs-value(4px) rfs-value(0) rfs-value(4px);
+}
+.spinner-holder-lg {
+  min-height: $spinner-height-lg;
+  padding: rfs-value(12px) rfs-value(12px) rfs-value(7.75px) rfs-value(12px);
+}

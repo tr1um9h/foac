@@ -1,0 +1,30 @@
+{
+  "name": "foac/text-image-collage",
+  "title": "Text Image Collage",
+  "description": "",
+  "style": "",
+  "script": "",
+  "category": "foac-blocks",
+  "icon": "carrot",
+  "apiVersion": 2,
+  "keywords": [],
+  "acf": {
+    "mode": "edit",
+    "renderTemplate": "text-image-collage.php"
+  },
+  "styles": [],
+  "supports": {
+    "align": false,
+    "anchor": true,
+    "alignContent": false,
+    "color": {
+      "text": false,
+      "background": true,
+      "link": false
+    },
+    "alignText": false,
+    "fullHeight": false
+  },
+  "attributes": {
+  }
+}

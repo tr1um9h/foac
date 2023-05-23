@@ -1,0 +1,117 @@
+.form-check-input {
+  &:focus {
+    box-shadow: $form-check-input-box-shadow, $form-check-input-focus-box-shadow;
+  }
+
+  &:disabled {
+    background-color: tint-color($form-check-input-disabled-bg, 90%);
+    border-color: $form-check-input-disabled-border-color;
+    outline-style: none;
+
+    &:checked {
+      background-color: $form-check-input-disabled-bg;
+
+      &[type="radio"] {
+        background-color: tint-color($form-check-input-disabled-bg, 90%);
+        background-image: escape-svg($form-check-radio-checked-disabled-bg-image);
+      }
+
+      &[type="checkbox"] {
+        border-style: none;
+      }
+    }
+  }
+
+  // Use disabled attribute in addition of :disabled pseudo-class
+  // See: https://github.com/twbs/bootstrap/issues/28247
+  &[disabled],
+  &:disabled {
+    ~ .form-check-label {
+      color: $form-check-label-disabled-color;
+      cursor: default;
+      opacity: $form-check-label-disabled-opacity;
+    }
+  }
+
+  &[type="radio"]:not(:disabled) {
+    background-color: $form-check-input-radio-bg-color;
+  }
+}
+
+.form-check-sm {
+  padding-left: $form-check-padding-start-sm;
+  margin-bottom: $form-check-margin-bottom-sm;
+  .form-check-input {
+    width: $form-check-input-width-sm;
+    height: $form-check-input-width-sm;
+    margin-top: ($line-height-base - $form-check-input-width-sm) * .5; // line-height minus check height
+    margin-left: $form-check-padding-start-sm * -1;
+  }
+}
+
+.form-check-encapsulated {
+  padding: revert;
+  &.form-check-encapsulated-lg {
+    .form-check-input {
+      width: $form-check-input-width;
+      height: $form-check-input-width;
+      margin-top: (($line-height-lg) - $form-check-input-width) * .5 + $form-check-encapsulated-padding-lg + .0625;
+      margin-left: 1em;
+
+      ~ .form-check-label {
+        padding: $form-check-encapsulated-padding-lg $form-check-encapsulated-padding-lg $form-check-encapsulated-padding-lg ($form-check-encapsulated-padding-lg * 1.5 + $form-check-input-width);
+        @include border-radius($form-check-encapsulated-border-radius-lg);
+        @include font-size($form-check-encapsulated-font-size-lg);
+
+      }
+    }
+  }
+
+  .form-check-input {
+    position: absolute;
+    width: $form-check-input-width-sm;
+    height: $form-check-input-width-sm;
+    margin-top: ($line-height-base - $form-check-input-width-sm) * .5 + $form-check-encapsulated-padding + .125;
+    margin-left: 1em;
+    cursor: pointer;
+    &:focus {
+      box-shadow: none;
+      ~ .form-check-label {
+        box-shadow: $form-check-input-box-shadow, $form-check-input-focus-box-shadow;
+      }
+    }
+
+    &:checked ~ .form-check-label {
+      border-color: $form-check-encapsulated-checked-border-color;
+    }
+
+    &[disabled],
+    &:disabled {
+      ~ .form-check-label {
+        &:hover{
+          cursor: default;
+          background-color: $form-check-encapsulated-bg;
+        }
+        border: $form-check-encapsulated-border;
+      }
+    }
+  }
+
+  .form-check-input ~ .form-check-label {
+    width: 100%;
+    padding: $form-check-encapsulated-padding $form-check-encapsulated-padding $form-check-encapsulated-padding ($form-check-encapsulated-padding * 2 + $form-check-input-width-sm);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    background: $form-check-encapsulated-bg;
+    border: $form-check-encapsulated-border;
+    @include border-radius($form-check-encapsulated-border-radius);
+    box-shadow: none;
+    @include transition($form-check-transition);
+
+    &:hover {
+      cursor: pointer;
+      background-color: $form-check-encapsulated-hover-color;
+    }
+  }
+}
+

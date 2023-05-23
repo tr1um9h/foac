@@ -1,0 +1,322 @@
+.bio-tiles {
+  h1,
+  h2 {
+    @include margin-bottom($spacer * 5);
+    text-align: center;
+  }
+
+  .bio-tile-holder {
+    @include make-row();
+
+    .description-holder {
+      overflow: hidden;
+      background-color: $interactive;
+      @include border-radius($border-radius-lg);
+      @include box-shadow(0 rfs-value(2px) rfs-value(32px) rgba($black, .08));
+      @include transition(all .25s ease-in-out);
+
+      &.collapse {
+        @include transition(all .25s ease-in-out);
+        position: relative;
+        right: rfs-value(-3px);
+        display: flex;
+        align-items: center;
+        min-width: 0;
+        height: 0;
+        opacity: 0;
+
+        .description {
+          width: 650px;
+          min-width: 650px;
+          opacity: 0;
+        }
+      }
+
+      &.expand {
+        @include transition(all .25s ease-in-out);
+        position: relative;
+        right: rfs-value(-3px);
+        display: flex;
+        align-items: center;
+        min-width: 650px;
+        height: fit-content;
+        opacity: 1;
+
+        .description {
+          width: 650px;
+          min-width: 650px;
+          opacity: 1;
+        }
+      }
+
+      .description {
+        @include transition(all .25s ease-in-out);
+        margin-bottom: 0;
+        color: $white;
+        @include padding($spacer * 4.5 $spacer * 4);
+      }
+    }
+  }
+
+  .bio-tile {
+    @include make-col-ready();
+    @include make-col(3);
+    display: inline-block;
+    @include margin-bottom($spacer * 5);
+    @include media-breakpoint-down(xl) {
+      @include make-col(4);
+    }
+    @include media-breakpoint-down(lg) {
+      @include make-col(6);
+    }
+    @include media-breakpoint-down(sm) {
+      @include make-col(12);
+    }
+
+    img {
+      @include border-radius($border-radius-pill);
+      display: block;
+      width: 80%;
+      margin: 0 auto;
+      overflow: hidden;
+      object-fit: cover;
+    }
+
+    .bio-inner {
+      position: relative;
+
+      &::after {
+        position: absolute;
+        right: 36px;
+        bottom: rfs-value(-20px);
+        display: block;
+        width: 0;
+        height: 0;
+        content: "";
+        border-right: rfs-value(10px) solid transparent;
+        border-bottom: rfs-value(10px) solid $interactive;
+        border-left: rfs-value(10px) solid transparent;
+        @include transition(all .25s ease-in-out);
+      }
+    }
+
+    .details-holder {
+      position: relative;
+      margin-top: rfs-value(-15px);
+      background: $white;
+      border: rfs-value(2px) solid $white;
+      @include border-radius($border-radius-3xl);
+      @include padding($spacer * 2.5);
+      @include box-shadow(0 rfs-value(2px) rfs-value(32px) rgba($black, .02));
+      @include transition(border-color .15s ease-in-out, box-shadow .15s ease-in-out);
+
+      h4 {
+        @include margin-bottom($spacer);
+      }
+
+      .title {
+        font-weight: $font-weight-medium;
+      }
+
+      .company {
+        width: 70%;
+        font-size: $sub-sup-font-size;
+      }
+
+      .icon {
+        position: absolute;
+        right: 32px;
+        bottom: 32px;
+        font-size: rfs-value(24px);
+        color: $interactive;
+        text-align: right;
+        transform: rotate(0);
+        @include transition(transform .15s ease-in-out);
+      }
+
+      &:hover {
+        cursor: pointer;
+        border-color: $interactive;
+        @include box-shadow($box-shadow-xxxl);
+      }
+    }
+
+    .description-holder {
+      margin-top: rfs-value(20px);
+      @include media-breakpoint-up(xl) {
+        //stylelint-disable-next-line function-disallowed-list
+        width: calc(400% + 72px);
+      }
+      @include media-breakpoint-between(lg, xl) {
+        //stylelint-disable-next-line function-disallowed-list
+        width: calc(300% + 48px);
+      }
+      @include media-breakpoint-between(sm, lg) {
+        //stylelint-disable-next-line function-disallowed-list
+        width: calc(200% + 24px);
+      }
+      @include media-breakpoint-down(sm) {
+        width: 100%;
+      }
+    }
+
+    &.is-collapsed {
+      .bio-inner {
+        &::after {
+          content: "";
+          opacity: 0;
+        }
+      }
+
+      .description-holder {
+        min-height: 0;
+        max-height: 0;
+        padding: 0;
+        margin-bottom: 0;
+        overflow: hidden;
+        opacity: 0;
+
+        .description {
+          min-height: 0;
+          max-height: 0;
+          margin-top: 0;
+          margin-bottom: 0;
+          overflow: hidden;
+          opacity: 0;
+        }
+      }
+    }
+
+    &.is-expanded {
+      .bio-inner {
+        &::after {
+          opacity: 1;
+        }
+      }
+
+      .details-holder {
+        i {
+          transform: rotate(-45deg);
+        }
+      }
+
+      .description-holder {
+        min-height: 200px;
+        max-height: 1000px;
+        overflow: visible;
+        opacity: 1;
+        @include media-breakpoint-down(md) {
+          max-height: max-content;
+        }
+
+        .description {
+          min-height: 200px;
+          max-height: 1000px;
+          overflow: visible;
+          opacity: 1;
+          @include media-breakpoint-down(md) {
+            max-height: max-content;
+          }
+        }
+      }
+    }
+
+    //stylelint-disable function-disallowed-list
+    @include media-breakpoint-up(xl) {
+      &:nth-of-type(4n+2) .description-holder {
+        margin-left: calc(-100% - 24px);
+      }
+      &:nth-of-type(4n+3) .description-holder {
+        margin-left: calc(-200% - 48px);
+      }
+      &:nth-of-type(4n+4) .description-holder {
+        margin-left: calc(-300% - 72px);
+      }
+      &:nth-of-type(4n+5) {
+        clear: left;
+      }
+    }
+    @include media-breakpoint-between(lg, xl) {
+      &:nth-of-type(3n+2) .description-holder {
+        margin-left: calc(-100% - 24px);
+      }
+      &:nth-of-type(3n+3) .description-holder {
+        margin-left: calc(-200% - 48px);
+      }
+      &:nth-of-type(3n+4) {
+        clear: left;
+      }
+    }
+    @include media-breakpoint-between(sm, lg) {
+      &:nth-of-type(2n+2) .description-holder {
+        margin-left: calc(-100% - 24px);
+      }
+      &:nth-of-type(2n+3) {
+        clear: left;
+      }
+    }
+    //stylelint-enable function-disallowed-list
+  }
+
+  &.scrollable {
+    .bio-tile-holder {
+      flex-wrap: nowrap;
+      overflow-x: scroll;
+      @include padding($spacer * 2.5);
+      @include margin-right($spacer * -2.5);
+      @include margin-left($spacer * -2.5);
+    }
+
+    .bio-inner {
+      position: relative;
+
+      &::after {
+        position: absolute;
+        right: rfs-value(-33px);
+        display: block;
+        width: 0;
+        height: 0;
+        content: "";
+        border-right: rfs-value(10px) solid transparent;
+        border-bottom: rfs-value(10px) solid $interactive;
+        border-left: rfs-value(10px) solid transparent;
+        @include transition(all .25s ease-in-out);
+        @include rfs($spacer * 2.5, bottom);
+        transform: rotate(-90deg);
+      }
+    }
+
+    .bio-tile {
+      margin-bottom: 0;
+      @include media-breakpoint-down(xl) {
+        @include make-col(4);
+      }
+      @include media-breakpoint-down(lg) {
+        @include make-col(5);
+      }
+      @include media-breakpoint-down(sm) {
+        @include make-col(11);
+      }
+
+      &.is-expanded {
+        .bio-inner {
+          &::after {
+            right: rfs-value(-20px);
+            @include rfs($spacer * 2.5, bottom);
+            opacity: 1;
+          }
+        }
+      }
+
+      &.is-collapsed {
+        .bio-inner {
+          &::after {
+            right: rfs-value(-20px);
+            @include rfs($spacer * 2.5, bottom);
+            opacity: 0;
+          }
+        }
+      }
+    }
+  }
+}

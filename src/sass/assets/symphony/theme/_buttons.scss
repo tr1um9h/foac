@@ -1,0 +1,220 @@
+.btn {
+  // scss-docs-start btn-css-vars
+  --#{$prefix}btn-padding-x: #{$btn-padding-x};
+  --#{$prefix}btn-padding-y: #{$btn-padding-y};
+  --#{$prefix}btn-font-weight: #{$btn-font-weight};
+  --#{$prefix}btn-border-radius: #{$btn-border-radius};
+  --#{$prefix}btn-border-width: #{$btn-border-width};
+  --#{$prefix}btn-line-height: #{$btn-line-height};
+  --#{$prefix}btn-focus-box-shadow: #{$btn-focus-box-shadow};
+  @include box-shadow(none);
+  &:focus-visible {
+    color: var(--#{$prefix}btn-color);
+    @include gradient-bg(var(--#{$prefix}btn-bg));
+    border-color: var(--#{$prefix}btn-border-color);
+    &:hover {
+      color: var(--#{$prefix}btn-hover-color);
+      text-decoration: if($link-hover-decoration == underline, none, null);
+      background-color: var(--#{$prefix}btn-hover-bg);
+      border-color: var(--#{$prefix}btn-hover-border-color);
+    }
+  }
+  > i + *,
+  > .icon + * {
+    margin-left: $spacer * .5;
+  }
+  > * + i,
+  > * + .icon {
+    margin-left: $spacer * .5;
+  }
+}
+
+@each $color, $value in $theme-colors {
+  .btn-#{$color} {
+    @if $color == "interactive" {
+      @include button-variant(
+        $value,
+        $value,
+        $hover-background: tint-color($value, $btn-hover-bg-tint-amount),
+        $hover-border: tint-color($value, $btn-hover-border-shade-amount),
+        $active-background: shade-color($value, $btn-active-bg-shade-amount),
+        $active-border: shade-color($value, $btn-active-border-shade-amount),
+        $disabled-background: $gray-600,
+        $disabled-border: $gray-600,
+        $disabled-color: $white
+      );
+    }
+    @else if $color == "primary" or $color == "denim" {
+      @include button-variant(
+        $value,
+        $value,
+        $hover-background: tint-color($value, 20%),
+        $hover-border: tint-color($value, 20%),
+        $active-background: shade-color($value, 40%),
+        $active-border: shade-color($value, 40%),
+        $disabled-background: $gray-600,
+        $disabled-border: $gray-600,
+        $disabled-color: $white
+      );
+    } @else if $color == "success" or $color == "jade" {
+      @include button-variant(
+        $value,
+        $value,
+        $color: $denim,
+        $hover-background: tint-color($value, 20%),
+        $hover-color: $denim,
+        $hover-border: tint-color($value, 20%),
+        $active-background: shade-color($value, 40%),
+        $active-border: shade-color($value, 40%),
+        $active-color: $white,
+        $disabled-background: $gray-600,
+        $disabled-border: $gray-600,
+        $disabled-color: $white
+      );
+    } @else if $color == "danger" {
+      @include button-variant(
+        $value,
+        $value,
+        $hover-background: tint-color($value, 20%),
+        $hover-border: tint-color($value, 20%),
+        $active-background: shade-color($value, $btn-active-bg-tint-amount),
+        $active-border: shade-color($value, $btn-active-border-tint-amount),
+        $disabled-background: $gray-600,
+        $disabled-border: $gray-600,
+        $disabled-color: $white
+      );
+    } @else if $color == "light" or $color == "white" {
+      @include button-variant(
+        $value,
+        $value,
+        $color: $denim,
+        $hover-background: $electric-50,
+        $hover-border: $electric-50,
+        $hover-color: $denim,
+        $active-background: $electric-200,
+        $active-border: $electric-200,
+        $active-color: $denim,
+        $disabled-background: $gray-600,
+        $disabled-border: $gray-600,
+        $disabled-color: $white
+      );
+    } @else {
+      @include button-variant(
+        $value,
+        $value,
+        $disabled-background: $gray-600,
+        $disabled-border: $gray-600,
+        $disabled-color: $white
+      );
+    }
+  }
+}
+
+@each $color, $value in $theme-colors {
+  .btn-outline-#{$color} {
+    @if $color == "light" or $color == "white" {
+      @include custom-button-outline-variant(
+        $value,
+        $hover-background: rgba($value, .12),
+        $active-background: $electric-200,
+        $active-border: $electric-200,
+      );
+    }
+    @else if $color == "primary" or $color == "denim" {
+      @include custom-button-outline-variant(
+        $value,
+        $active-background: $denim-700,
+        $active-border: $denim-700,
+      );
+    } @else if $color == "success" or $color == "jade" {
+      @include custom-button-outline-variant(
+        $jade-700,
+        $btn-border: $jade-700,
+        $hover-background: $jade-100,
+        $hover-border: $jade-700,
+        $active-background: $jade-700,
+        $active-border: $jade-700,
+        $active-color: $white,
+      );
+    } @else if $color == "danger" {
+      @include custom-button-outline-variant(
+        $value,
+        $active-background: $value,
+        $active-border: $value,
+        $active-color: $white,
+      );
+    } @else {
+      @include custom-button-outline-variant($value);
+    }
+  }
+}
+
+
+@each $color, $value in $theme-colors {
+  .btn-link-#{$color} {
+    @if $color == "interactive" or $color == "secondary" or $color == "danger" {
+      @include button-link-variant($value);
+    } @else if $color == "primary" or $color == "denim" {
+      @include button-link-variant(
+        $value,
+        $active-background: $denim-700,
+      );
+    } @else if $color == "light" or $color == "white" {
+      @include button-link-variant(
+        $value,
+        $hover-background: rgba($value, .12),
+        $active-background: $electric-200,
+        $active-color: $denim,
+        $disabled-color: $gray-400
+      );
+    }
+  }
+}
+
+.btn-sm {
+  @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-font-size-sm, $btn-border-radius-sm);
+  > i + *,
+  > .icon + * {
+    margin-left: $spacer * .375;
+  }
+  > * + i,
+  > * + .icon {
+    margin-left: $spacer * .375;
+  }
+}
+
+.btn-lg {
+  @include button-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-font-size-lg, $btn-border-radius-lg);
+  > i + *,
+  > .icon + * {
+    margin-left: $spacer * .625;
+  }
+  > * + i,
+  > * + .icon {
+    margin-left: $spacer * .625;
+  }
+}
+
+.btn-xl {
+  @include button-size($btn-padding-y-xl, $btn-padding-x-xl, $btn-font-size-xl, $btn-border-radius-xl);
+  > i + *,
+  > .icon + * {
+    margin-left: $spacer * .75;
+  }
+  > * + i,
+  > * + .icon {
+    margin-left: $spacer * .75;
+  }
+}
+
+.btn-2xl {
+  @include button-size($btn-padding-y-2xl, $btn-padding-x-2xl, $btn-font-size-2xl, $btn-border-radius-2xl);
+  > i + *,
+  > .icon + * {
+    margin-left: $spacer * .875;
+  }
+  > * + i,
+  > * + .icon {
+    margin-left: $spacer * .875;
+  }
+}

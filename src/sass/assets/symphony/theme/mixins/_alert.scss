@@ -1,0 +1,8 @@
+// scss-docs-start btn-size-mixin
+@mixin alert-size($padding-y, $padding-x, $font-size, $border-radius) {
+  --#{$prefix}alert-padding-y: #{$padding-y};
+  --#{$prefix}alert-padding-x: #{$padding-x};
+  @include rfs($font-size, --#{$prefix}alert-font-size);
+  --#{$prefix}alert-border-radius: #{$border-radius};
+}
+// scss-docs-end btn-size-mixin

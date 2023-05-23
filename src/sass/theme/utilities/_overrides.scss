@@ -1,0 +1,93 @@
+$fa-font-path: "../fonts" !default;
+@import "../../assets/symphony/theme/overrides";
+@import "../../assets/symphony/assets/bootstrap5/variables";
+@import "../../assets/symphony/assets/bootstrap5/maps";
+@import "../../assets/symphony/assets/bootstrap5/utilities";
+$navbar-padding-y: 1.375rem;
+$iris: #5d5fef;
+$fuchsia: #ef5da8;
+$theme-colors: (
+  "iris": $iris,
+  "fuchsia": $fuchsia
+);
+$iris-50:  tint-color($iris, 90%);
+$iris-100: tint-color($iris, 80%);
+$iris-200: tint-color($iris, 60%);
+$iris-300: tint-color($iris, 40%);
+$iris-400: tint-color($iris, 20%);
+$iris-425: tint-color($iris, 15%);
+$iris-500: $iris;
+$iris-600: shade-color($iris, 20%);
+$iris-700: shade-color($iris, 40%);
+$iris-800: shade-color($iris, 60%);
+$iris-900: shade-color($iris, 80%);
+
+$irises: (
+  "iris-50":  $iris-50,
+  "iris-100": $iris-100,
+  "iris-200": $iris-200,
+  "iris-300": $iris-300,
+  "iris-400": $iris-400,
+  "iris-425": $iris-425,
+  "iris-500": $iris-500,
+  "iris-600": $iris-600,
+  "iris-700": $iris-700,
+  "iris-800": $iris-800,
+  "iris-900": $iris-900
+);
+
+$fuchsia-50:  tint-color($fuchsia, 90%);
+$fuchsia-100: tint-color($fuchsia, 80%);
+$fuchsia-200: tint-color($fuchsia, 60%);
+$fuchsia-300: tint-color($fuchsia, 40%);
+$fuchsia-400: tint-color($fuchsia, 20%);
+$fuchsia-425: tint-color($fuchsia, 15%);
+$fuchsia-500: $fuchsia;
+$fuchsia-600: shade-color($fuchsia, 20%);
+$fuchsia-700: shade-color($fuchsia, 40%);
+$fuchsia-800: shade-color($fuchsia, 60%);
+$fuchsia-900: shade-color($fuchsia, 80%);
+
+$fuchsias: (
+  "fuchsia-50":  $fuchsia-50,
+  "fuchsia-100": $fuchsia-100,
+  "fuchsia-200": $fuchsia-200,
+  "fuchsia-300": $fuchsia-300,
+  "fuchsia-400": $fuchsia-400,
+  "fuchsia-425": $fuchsia-425,
+  "fuchsia-500": $fuchsia-500,
+  "fuchsia-600": $fuchsia-600,
+  "fuchsia-700": $fuchsia-700,
+  "fuchsia-800": $fuchsia-800,
+  "fuchsia-900": $fuchsia-900
+);
+
+$all-colors: map-merge-multiple($irises, $fuchsias);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "color": map-merge(
+      map-get($utilities, "color"),
+      (
+        values: map-merge(
+          map-get(map-get($utilities, "color"), "values"),
+          (
+            $all-colors
+          ),
+        ),
+      ),
+    ),
+    "background-color": map-merge(
+      map-get($utilities, "background-color"),
+      (
+        values: map-merge(
+          map-get(map-get($utilities, "background-color"), "values"),
+          (
+            $all-colors
+          ),
+        ),
+      ),
+    ),
+  )
+);

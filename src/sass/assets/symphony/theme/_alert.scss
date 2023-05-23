@@ -1,0 +1,92 @@
+.alert {
+  // scss-docs-start alert-css-vars
+  --#{$prefix}alert-bg: transparent;
+  --#{$prefix}alert-padding-x: #{$alert-padding-x};
+  --#{$prefix}alert-padding-y: #{$alert-padding-y};
+  --#{$prefix}alert-margin-bottom: #{$alert-margin-bottom};
+  --#{$prefix}alert-color: inherit;
+  --#{$prefix}alert-border-color: transparent;
+  --#{$prefix}alert-border: #{$alert-border-width} solid var(--#{$prefix}alert-border-color);
+  --#{$prefix}alert-border-radius: #{$alert-border-radius};
+  --#{$prefix}alert-font-size: #{$alert-font-size};
+  // scss-docs-end alert-css-vars
+
+  position: relative;
+  display: flex;
+  padding: var(--#{$prefix}alert-padding-y) var(--#{$prefix}alert-padding-x);
+  margin-bottom: var(--#{$prefix}alert-margin-bottom);
+  font-size: var(--#{$prefix}alert-font-size);
+  color: var(--#{$prefix}alert-color);
+  background-color: var(--#{$prefix}alert-bg);
+  border: var(--#{$prefix}alert-border);
+  @include border-radius(var(--#{$prefix}alert-border-radius));
+  i {
+    margin-top: rfs-value(1px);
+    margin-right: $spacer * .625;
+    font-size: $font-size-xl;
+  }
+}
+
+.alert-dismissible {
+  padding-right: $alert-dismissible-padding-r;
+
+  // Adjust close link position
+  .btn-close {
+    z-index: $stretched-link-z-index + 1;
+    padding: $alert-padding-y * 1.25 $alert-padding-x $alert-padding-y * 1.25 $spacer * .625;
+    &::after {
+      font-size: $font-size-xl;
+    }
+  }
+}
+
+@each $state, $value in $theme-colors {
+  $alert-background: shift-color($value, $alert-bg-scale);
+  $alert-border: tint-color($value, 40%);
+  @if $state == "danger" {
+    $alert-border: tint-color($value, 60%);
+  }
+  $alert-color: $gray-900;
+
+  @if (contrast-ratio($alert-background, $alert-color) < $min-contrast-ratio) {
+    $alert-color: mix($value, color-contrast($alert-background), abs($alert-color-scale));
+  }
+  .alert-#{$state} {
+    @include alert-variant($alert-background, $alert-border, $alert-color);
+  }
+}
+
+.alert-lg {
+  @include alert-size($alert-padding-y-lg, $alert-padding-x-lg, $alert-font-size-lg, $alert-border-radius-lg);
+  i {
+    margin-right: $spacer * .75;
+    font-size: $font-size-3xl;
+  }
+  &.alert-dismissible {
+    padding-right: $alert-dismissible-padding-r-lg;
+    .btn-close {
+      padding: $alert-padding-y-lg $alert-padding-x-lg $alert-padding-y-lg $spacer * .75;
+      &::after {
+        font-size: $font-size-3xl;
+      }
+    }
+  }
+}
+
+.alert-sm {
+  @include alert-size($alert-padding-y-sm, $alert-padding-x-sm, $alert-font-size-sm, $alert-border-radius-sm);
+  i {
+    margin-right: $spacer * .5;
+    font-size: $alert-font-size-lg;
+  }
+  &.alert-dismissible {
+    padding-right: $alert-dismissible-padding-r-sm;
+    .btn-close {
+      padding: $alert-padding-y-sm $alert-padding-x-sm $alert-padding-y-sm $spacer * .5;
+      &::after {
+        font-size: $alert-font-size-lg;
+      }
+    }
+  }
+}
+

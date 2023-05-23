@@ -1,0 +1,104 @@
+.three-image-text {
+  &.section-overlap {
+    @include margin-top(- $spacer * 4.5);
+    position: relative;
+    z-index: 2;
+    // stylelint-disable-next-line declaration-no-important
+    padding-top: 0 !important;
+    .card-holder {
+      background-color: $white;
+      @include border-radius($border-radius-3xl);
+      @include padding($spacer * 1.5);
+      box-shadow: 0 rfs-value(2px) rfs-value(32px) rgba($black, .04);
+    }
+    .content-container {
+      border-right: rfs-value(1px) solid $gray-200;
+      border-bottom: rfs-value(1px) solid $gray-200;
+      border-left: rfs-value(1px) solid $gray-200;
+      @include media-breakpoint-only(md) {
+        border-top: rfs-value(1px) solid $gray-200;
+        border-right: rfs-value(1px) solid $gray-200;
+        border-bottom: rfs-value(1px) solid $gray-200;
+        border-left: 0;
+      }
+    }
+  }
+  h1 {
+    text-align: center;
+    @include margin-bottom($spacer * 3.875);
+  }
+  .card-holder-single {
+    &:last-child {
+      .three-image-text-content {
+        @include media-breakpoint-down(sm) {
+          margin: 0;
+        }
+      }
+    }
+  }
+  .three-image-text-content {
+    margin-bottom: $grid-gutter-width;
+    @include box-shadow($box-shadow-xxl);
+    @include border-radius($border-radius-2xl);
+    @include media-breakpoint-up(md) {
+      margin: 0;
+    }
+    @include media-breakpoint-only(md) {
+      display: flex;
+      margin-bottom: $grid-gutter-width;
+    }
+
+    .image-container {
+      width: 100%;
+      @include border-top-radius($border-radius-2xl);
+      overflow: hidden;
+
+      img {
+        width: 100%;
+      }
+
+      @include media-breakpoint-only(md) {
+        float: left;
+        width: 50%;
+        @include border-top-end-radius(0);
+        @include border-start-radius($border-radius-2xl);
+        img {
+          object-fit: cover;
+          height: 100%;
+        }
+      }
+    }
+  }
+  .content-container {
+    width: 100%;
+    @include border-bottom-radius($border-radius-2xl);
+    background-color: $white;
+    @include media-breakpoint-only(md) {
+      float: left;
+      width: 50%;
+      @include border-end-radius($border-radius-2xl);
+      @include border-bottom-start-radius(0);
+    }
+
+    .content-row {
+      width: 80%;
+      @include padding-top($spacer * 3);
+      margin: 0 auto;
+      @include padding-bottom($spacer * 3);
+
+      h4 {
+        @include margin-bottom($spacer);
+      }
+
+      p {
+        @include margin-bottom($spacer * 1.5);
+      }
+
+      a {
+        @include media-breakpoint-down(md) {
+          display: block;
+        }
+      }
+    }
+  }
+}

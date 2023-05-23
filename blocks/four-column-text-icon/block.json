@@ -1,0 +1,30 @@
+{
+  "name": "foac/four-column-text-icon",
+  "title": "Four Column Text Icon",
+  "description": "",
+  "style": "",
+  "script": "",
+  "category": "foac-blocks",
+  "icon": "carrot",
+  "apiVersion": 2,
+  "keywords": [],
+  "acf": {
+    "mode": "edit",
+    "renderTemplate": "four-column-text-icon.php"
+  },
+  "styles": [],
+  "supports": {
+    "align": false,
+    "anchor": true,
+    "alignContent": false,
+    "color": {
+      "text": false,
+      "background": true,
+      "link": false
+    },
+    "alignText": false,
+    "fullHeight": false
+  },
+  "attributes": {
+  }
+}

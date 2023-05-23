@@ -1,0 +1,78 @@
+.form-floating {
+  label {
+    font-weight: $form-floating-label-weight;
+    color: $form-floating-label-color;
+  }
+
+  > .form-select {
+    padding-left: $form-floating-input-padding-x;
+    @include border-radius($form-floating-input-border-radius);
+  }
+
+  > .form-control {
+    @include border-radius($form-floating-input-border-radius);
+    &:focus {
+      &::placeholder {
+        color: $input-placeholder-color;
+        // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526.
+        opacity: 1;
+      }
+    }
+  }
+
+  > .form-control:focus,
+  > .form-control:not(:placeholder-shown),
+  > .form-control-plaintext,
+  > .form-select {
+    ~ label {
+      top: rfs-value(4px);
+    }
+  }
+
+  > .form-select-lg,
+  > .form-control-lg {
+    padding-left: $form-floating-input-padding-x-lg;
+    @include border-radius($form-floating-input-border-radius-lg);
+
+    &.form-control:focus,
+    &.form-control:not(:placeholder-shown),
+    &.form-control-plaintext,
+    &.form-select {
+      ~ label {
+        transform: $form-floating-label-lg-transform;
+      }
+    }
+
+    ~ label {
+      padding: $form-floating-padding-y-lg $form-floating-padding-x-lg;
+      font-size: $form-floating-label-lg-font-size;
+    }
+  }
+
+  > .form-control:disabled,
+  > .form-select:disabled {
+    ~ label {
+      color: $form-floating-label-disabled-color;
+    }
+  }
+
+  > .form-control:focus:not(:invalid):not(.is-invalid),
+  > .form-select:focus:not(:invalid):not(.is-invalid) {
+    ~ label {
+      color: $form-floating-label-focus-color;
+    }
+  }
+
+  // If the form-select has the empty option selected, the label should not be floating
+  // Only works on browsers support :has() selector, https://caniuse.com/css-has
+  // stylelint-disable-next-line selector-no-qualifying-type
+  > .form-select:not(:focus):has(option[value=""]:checked) {
+    text-indent: 100%;
+    white-space: nowrap;
+
+    ~ label {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}

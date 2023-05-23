@@ -1,0 +1,381 @@
+.hero {
+  position: relative;
+  z-index: 0;
+  overflow: visible;
+  background-color: $primary;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-position-y: 30%;
+  background-size: cover;
+
+  &:not(.has-background-image) {
+    &::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 68%;
+      height: 100%;
+      content: "";
+      background-image: url($denim-pixel-bg);
+      background-repeat: no-repeat;
+      background-position: right bottom;
+      background-size: 100%;
+      @include media-breakpoint-down(lg) {
+        width: 100%;
+        background-size: cover;
+      }
+    }
+    .hero-content.option1.shorten {
+      padding-top: rfs-fluid-value($spacer * 4.5);
+      padding-bottom: rfs-fluid-value($spacer * 4.5);
+    }
+  }
+
+  &.option1 {
+    &.cares-bg {
+      @include gradient-x($fuchsia-500, $denim);
+      &::after {
+        opacity: .3;
+        transform: scaleY(-1);
+      }
+    }
+    .justify-content-start:not(.remove-icon) {
+      position: relative;
+      .hero-content {
+        @include padding-left($spacer * 1.5);
+        @include media-breakpoint-down(md) {
+          padding-left: 0;
+        }
+      }
+      &::after {
+        position: absolute;
+        right: 12px;
+        bottom: -40px;
+        width: 80px;
+        height: 80px;
+        content: "";
+        background-image: url($foa-icon);
+        background-repeat: no-repeat;
+        @include transition(bottom .15s ease-in-out, width .15s ease-in-out, height .15s ease-in-out, right .15s ease-in-out);
+        @include box-shadow($box-shadow-xxl);
+        @include border-radius($border-radius-pill);
+        @include media-breakpoint-down(sm) {
+          right: 50%;
+          bottom: -30px;
+          width: 60px;
+          height: 60px;
+          margin-right: (-$spacer * 1.875);
+        }
+      }
+    }
+    .justify-content-center {
+      .hero-content {
+        @extend .col-10;
+      }
+    }
+    .justify-content-end:not(.remove-icon) {
+      position: relative;
+      .hero-content {
+        @include padding-right($spacer * 1.5);
+        @include media-breakpoint-down(sm) {
+          padding-right: 0;
+        }
+      }
+      &::after {
+        position: absolute;
+        bottom: -40px;
+        left: 12px;
+        width: 80px;
+        height: 80px;
+        content: "";
+        background-image: url($foa-icon);
+        background-repeat: no-repeat;
+        @include media-breakpoint-down(sm) {
+          bottom: -30px;
+          left: 50%;
+          width: 60px;
+          height: 60px;
+          margin-left: (-$spacer * 1.875);
+        }
+      }
+    }
+  }
+
+  &.option2 {
+    height: auto;
+    overflow: visible;
+    @include margin-bottom($spacer * 5);
+    @include media-breakpoint-down(sm) {
+      @include margin-bottom($spacer * 1.875);
+    }
+  }
+
+  &.option3 {
+    height: 62vh;
+    min-height: 665px;
+    overflow: visible;
+    @include margin-bottom($spacer * 8.5);
+    @include media-breakpoint-up(xxl) {
+      min-height: 775px;
+    }
+    @include media-breakpoint-down(xxxl) {
+      @include margin-bottom($spacer * 2);
+    }
+    @include media-breakpoint-down(xxl) {
+      margin-bottom: 0;
+    }
+    @include media-breakpoint-down(md) {
+      margin-bottom: 10%;
+    }
+    @include media-breakpoint-down(sm) {
+      min-height: 400px;
+    }
+  }
+
+  &::before {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    content: "";
+    background-color: rgba($black, .1);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    width: 48%;
+    min-width: 572px;
+    padding-top: rfs-fluid-value($spacer * 7.5);
+    padding-bottom: rfs-fluid-value($spacer * 7.5);
+    @include media-breakpoint-down(xxl) {
+      width: 60%;
+      min-width: auto;
+    }
+    @include media-breakpoint-down(md) {
+      width: 80%;
+      min-width: auto;
+      margin: 0 auto;
+    }
+    &.option1 {
+      img {
+        @include margin-bottom($spacer * 2.5);
+      }
+      a {
+        @include margin-top($spacer * 2);
+        @include margin-right($spacer * 1.5);
+
+        &:last-child {
+          margin-right: 0;
+        }
+
+        @include media-breakpoint-down(sm) {
+          display: block;
+          margin-right: 0;
+        }
+      }
+      &.overlap {
+        @include margin-bottom($spacer * 4.5);
+      }
+      &.shorten {
+        h1 {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    &.option2 {
+      width: 100%;
+      @include padding-left($spacer * 1.5);
+      a {
+        @include margin-top($spacer * 2);
+        @include margin-right($spacer * 1.5);
+
+        &:last-child {
+          margin-right: 0;
+        }
+
+        @include media-breakpoint-down(sm) {
+          display: block;
+          margin-right: 0;
+        }
+      }
+      @include media-breakpoint-down(lg) {
+        width: 80%;
+        padding-top: 0;
+        padding-bottom: 0;
+        @include margin($spacer * 5 auto $spacer * 3);
+      }
+      @include media-breakpoint-down(sm) {
+        padding-left: 0;
+      }
+    }
+
+    &.option3 {
+      @include padding-left($spacer * 1.5);
+      @include media-breakpoint-down(xxl) {
+        width: 100%;
+        min-width: auto;
+      }
+      @include media-breakpoint-down(md) {
+        @include padding-top($spacer * 4);
+      }
+      @include media-breakpoint-down(sm) {
+        width: 100%;
+        @include padding-right($spacer * 1.5);
+      }
+    }
+
+    h1 {
+      color: $white;
+      @include margin-bottom($spacer * 1.5);
+      @include media-breakpoint-down(md) {
+        width: 100%;
+      }
+    }
+
+    .overlap {
+      width: 100%;
+      max-width: 600px;
+      margin-bottom: $spacer * 1.5;
+      color: $white;
+    }
+
+    p {
+      margin-bottom: 0;
+      font-size: $font-size-lg;
+      color: $white;
+      @include media-breakpoint-down(md) {
+        @include margin-right($spacer);
+      }
+      @include media-breakpoint-down(sm) {
+        margin-right: 0;
+      }
+    }
+  }
+
+  .hero-image {
+    overflow: hidden;
+    @include media-breakpoint-down(md) {
+      overflow: visible;
+    }
+
+    &.option2 {
+      margin-bottom: -29.5%;
+      overflow: visible;
+      @include media-breakpoint-down(lg){
+        margin-bottom: -14.5%;
+      }
+      @include media-breakpoint-down(md) {
+        position: relative;
+        margin-bottom: 0;
+      }
+      @include media-breakpoint-down(sm) {
+        @include margin-bottom(-$spacer * 1.875);
+      }
+      img {
+        position: relative;
+        z-index: 9;
+        width: 100%;
+        @include media-breakpoint-down(lg) {
+          display: block;
+          width: 80%;
+          margin: 0 auto;
+          @include margin-bottom($spacer * 2);
+        }
+        @include media-breakpoint-down(md) {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    &.option3 {
+      position: relative;
+      z-index: 9;
+      height: 100%;
+      overflow: visible;
+      @include padding(90px 0 50px);
+      @include media-breakpoint-down(md) {
+        top: -33vw;
+        height: auto;
+      }
+      @include media-breakpoint-down(sm) {
+        top: -10vw;
+      }
+
+      img {
+        @include border-radius($border-radius-3xl);
+        object-fit: cover;
+
+        &:nth-child(1) {
+          position: absolute;
+          top: 400px;
+          left: -325px;
+          width: 40%;
+          @include media-breakpoint-down(xxxl) {
+            top: 380px;
+            left: -285px;
+          }
+          @include media-breakpoint-down(xxl) {
+            top: 480px;
+            left: -90px;
+          }
+          @include media-breakpoint-down(xl) {
+            top: 41vw;
+            left: -7vw;
+          }
+          @include media-breakpoint-down(md) {
+            position: relative;
+            top: 20vw;
+            left: 6vw;
+            width: 30%;
+          }
+          @include media-breakpoint-down(sm) {
+            top: 20vw;
+          }
+        }
+
+        &:nth-child(2) {
+          position: absolute;
+          right: 0;
+          width: 100%;
+          @include media-breakpoint-down(md) {
+            position: relative;
+            top: 0;
+            left: 8vw;
+            width: 60%;
+          }
+          @include media-breakpoint-down(sm) {
+            top: 0;
+          }
+        }
+
+        &:nth-child(3) {
+          position: absolute;
+          top: 600px;
+          left: 0;
+          width: 70%;
+          @include media-breakpoint-down(xxxl) {
+            top: 540px;
+          }
+          @include media-breakpoint-down(xxl) {
+            top: 480px;
+            right: 0;
+            left: auto;
+          }
+          @include media-breakpoint-down(xl) {
+            top: 41vw;
+            right: 0;
+            left: auto;
+          }
+          @include media-breakpoint-down(md) {
+            position: relative;
+            top: 30px;
+            left: 37vw;
+            width: 55%;
+          }
+        }
+      }
+    }
+  }
+}

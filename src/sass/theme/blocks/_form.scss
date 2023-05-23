@@ -1,0 +1,87 @@
+// stylelint-disable function-disallowed-list
+.form {
+  // stylelint-disable-next-line selector-class-pattern
+  .gform_wrapper {
+    @include make-row();
+    @extend .justify-content-center;
+  }
+  // stylelint-disable-next-line selector-class-pattern
+  .gform_heading {
+    @include make-col-ready();
+    @include make-col(8);
+    text-align: center;
+    @include media-breakpoint-down(md) {
+      @include make-col(12);
+    }
+    h2 {
+      @extend .display-3;
+      @include margin-bottom($spacer * 1.5);
+    }
+  }
+  form {
+    @include make-col-ready();
+    @include make-col(6);
+    @include margin-top($spacer * 4.5);
+    @include media-breakpoint-down(lg) {
+      @include make-col(8);
+    }
+    @include media-breakpoint-down(md) {
+      @include make-col(12);
+    }
+  }
+  // stylelint-disable-next-line selector-class-pattern
+  .gfield_radio {
+    .form-check {
+      display: inline-block;
+      width: calc(33.33333% - 3px);
+      @include media-breakpoint-down(lg) {
+        width: 100%;
+      }
+    }
+  }
+  .legal {
+    @include margin-top($spacer * 2.5);
+    margin-bottom: 0;
+    color: $gray-700;
+    text-align: center;
+  }
+  .legend-space {
+    legend {
+      @include margin-bottom($spacer * 1.5);
+    }
+  }
+  // stylelint-disable-next-line selector-class-pattern
+  .gform-button--width-full {
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+    @include padding($spacer * .6875 $spacer * 3.53125);
+    @include media-breakpoint-down(sm) {
+      width: 100%;
+    }
+  }
+  .gsection {
+    height: rfs-value(1px);
+    background-color: $gray-200;
+    h3 {
+      @extend .d-none;
+    }
+  }
+  // stylelint-disable-next-line selector-class-pattern
+  .gfield--type-total {
+    label {
+      display: inline;
+      @include margin-right($spacer * .5);
+    }
+    // stylelint-disable-next-line selector-class-pattern
+    .ginput_container_total {
+      display: inline-block;
+    }
+    input {
+      font-weight: $font-weight-bold;
+      color: $jade-600;
+      border: 0;
+      outline: 0;
+    }
+  }
+}

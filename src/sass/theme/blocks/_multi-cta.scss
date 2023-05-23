@@ -1,0 +1,30 @@
+.multi-cta {
+  color: $white;
+  text-align: center;
+  h3 {
+    color: $white;
+    @include margin-bottom($spacer * 2);
+  }
+  p {
+    @include margin-bottom($spacer * 2);
+    a {
+      color: $white;
+    }
+  }
+  .button-holder {
+    &:not(:last-child) {
+      @include media-breakpoint-down(md) {
+        @include margin-bottom($spacer * 1.5);
+      }
+    }
+    a {
+      @include media-breakpoint-down(md) {
+        display: block;
+      }
+    }
+  }
+  .legal {
+    @include margin-top($spacer * 3.75);
+    margin-bottom: 0;
+  }
+}

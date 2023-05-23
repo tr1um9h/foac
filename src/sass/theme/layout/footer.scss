@@ -1,0 +1,194 @@
+footer {
+  color: $white;
+  background-color: $denim-700;
+  @include padding($spacer * 5 $spacer * 1.25 $spacer * 4.5);
+
+
+  .legal {
+    margin-bottom: 0;
+    font-size: $sub-sup-font-size;
+    text-align: right;
+
+    span {
+      font-weight: $font-weight-normal;
+    }
+
+    a {
+      color: $white;
+    }
+  }
+
+  .social-link-holder {
+    text-align: right;
+    @include margin-bottom($spacer * 1.6875);
+    @include media-breakpoint-down(md) {
+      @include margin-top($spacer * 2);
+    }
+
+    .social-link {
+      color: $white;
+      text-decoration: none;
+      i {
+        width: 32px;
+        height: 32px;
+        padding: rfs-value(6px 6px 5.5px 6px);
+        font-size: rfs-value(15px);
+        text-align: center;
+        border: rfs-value(2px) solid $white;
+        @include border-radius($border-radius-pill);
+      }
+
+      &:not(:last-child) {
+        margin-right: ($spacer * 1.25);
+      }
+    }
+  }
+
+  //stylelint-disable-next-line selector-max-id
+  #menu-privacy {
+    font-size: $sub-sup-font-size;
+    color: $white;
+    text-align: right;
+    @include margin-bottom($spacer * 1);
+    //stylelint-disable-next-line selector-max-id
+    li {
+      display: inline-block;
+      //stylelint-disable-next-line selector-max-id
+      &:not(:last-child) {
+        padding-right: rfs-value(10px);
+        margin-right: rfs-value(10px);
+        border-right: rfs-value(1px) solid $white;
+      }
+
+      //stylelint-disable-next-line
+      a {
+        color: $white;
+      }
+    }
+  }
+
+  .site-footer-nav {
+    @include media-breakpoint-only(sm) {
+      @include margin-bottom($spacer * 4);
+      &:last-child,
+      &:nth-last-child(2) {
+        margin-bottom: 0;
+      }
+    }
+    @include media-breakpoint-down(sm) {
+      @include margin-bottom($spacer * 4);
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    ul {
+      margin-bottom: 0;
+    }
+
+    .nav-title {
+      color: $white;
+      @include margin-bottom($spacer * 2.25);
+    }
+
+    .menu-item {
+      @include margin-bottom($spacer);
+
+      a,
+      button {
+        position: relative;
+        display: block;
+        width: fit-content;
+        overflow: hidden;
+        font-size: $font-size-sm;
+        font-weight: $font-weight-medium;
+        color: $white;
+        text-decoration: none;
+
+        &::after {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: rfs-value(1px);
+          content: "";
+          background-color: $white;
+          opacity: 0;
+          @include transition(opacity .15s ease-in-out, transform .25s ease-in-out);
+          transform: translate3d(-100%, 0, 0);
+        }
+
+        &:hover {
+          &::after,
+          &:focus {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+          }
+        }
+      }
+    }
+
+    &.collapse-nav {
+      @include margin-bottom($spacer * 1);
+
+      .nav-title {
+        margin-bottom: 0;
+
+        button {
+          position: relative;
+          display: flex;
+          align-items: center;
+          width: 100%;
+          @include padding($spacer 0);
+          font-weight: $font-weight-black;
+          color: $white;
+          text-align: left;
+          background: none;
+          border: 0;
+          transform: rotateX(0);
+          @include transition(transform .15s ease-in-out);
+
+          &:not(.collapsed) {
+            &::after {
+              transform: rotateX(-180deg);
+              @include transition(transform .15s ease-in-out);
+            }
+          }
+
+          &::after {
+            @extend %fa-icon;
+            @extend .fa-solid;
+            position: absolute;
+            right: 0;
+            content: fa-content($fa-var-angle-down);
+          }
+        }
+      }
+
+      ul {
+        @include margin-top($spacer * .5);
+      }
+    }
+  }
+}
+
+//stylelint-disable selector-no-qualifying-type
+footer.no-nav {
+  .align-items-center {
+    flex-wrap: wrap;
+  }
+  .legal {
+    flex: 0 0 100%;
+    margin-bottom: rfs-value(5px);
+    text-align: left;
+  }
+  //stylelint-disable-next-line selector-max-id
+  #menu-privacy {
+    margin-bottom: 0;
+    text-align: left;
+  }
+  .social-link-holder {
+    margin-bottom: 0;
+  }
+}
+//stylelint-enable selector-no-qualifying-type

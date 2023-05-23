@@ -1,0 +1,25 @@
+.modal {
+  .modal-header {
+    position: relative;
+    padding: 0;
+    border-bottom: none;
+    .btn-close {
+      position: absolute;
+      top: -12px;
+      right: -12px;
+      padding: 0;
+      font-size: rfs-value(40px);
+      color: $white;
+      --fa-primary-color: #{$white};
+      --fa-secondary-color: #{$interactive};
+      --fa-secondary-opacity: 1;
+      @include border-radius($border-radius-pill);
+      @include fa-icon-duotone($fa-var-circle-xmark);
+      @include transition(--fa-secondary-color .15s ease-in-out);
+      &:hover {
+        opacity: 1;
+        --fa-secondary-color: #{$interactive-425};
+      }
+    }
+  }
+}

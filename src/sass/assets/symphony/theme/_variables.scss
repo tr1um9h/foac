@@ -1,0 +1,122 @@
+@import "./overrides";
+
+// scss-docs-start font-variables
+$font-size-xl: $font-size-base * 1.25;
+$font-size-2xl: $font-size-base * 1.375;
+$font-size-3xl: $font-size-base * 1.5;
+// scss-docs-end font-variables
+
+// scss-docs-start border-radius-variables
+$border-radius-3xl:           rfs-value(24px);
+$border-radius-4xl:           rfs-value(32px);
+// scss-docs-end border-radius-variables
+
+// Buttons + Forms
+//
+// Shared variables that are reassigned to `$input-` and `$btn-` specific variables.
+// scss-docs-start input-btn-variables
+$input-btn-padding-y-xl:          rfs-value(11px);
+$input-btn-padding-x-xl:          rfs-value(18px);
+$input-btn-padding-y-2xl:         rfs-value(13.5px);
+$input-btn-padding-x-2xl:         rfs-value(21px);
+$input-btn-font-size-xl:          $font-size-xl;
+$input-btn-font-size-2xl:         $font-size-2xl;
+// scss-docs-end input-btn-variables
+
+// scss-docs-start btn-variables
+$btn-padding-y-xl:             $input-btn-padding-y-xl;
+$btn-padding-x-xl:             $input-btn-padding-x-xl;
+$btn-font-size-xl:             $input-btn-font-size-xl;
+
+$btn-padding-y-2xl:            $input-btn-padding-y-2xl;
+$btn-padding-x-2xl:            $input-btn-padding-x-2xl;
+$btn-font-size-2xl:            $input-btn-font-size-2xl;
+
+$btn-border-radius-xl:         $border-radius-xl;
+$btn-border-radius-2xl:        $border-radius-2xl;
+
+$btn-hover-border-shade-amount: 15%;
+$btn-hover-border-tint-amount: 15%;
+$btn-active-border-shade-amount: 20%;
+// scss-docs-end btn-variables
+
+// scss-docs-start alert-variables
+$alert-font-size:                  $font-size-base;
+$alert-padding-y-sm:               $spacer * .53125;
+$alert-padding-x-sm:               $spacer * .75;
+$alert-border-radius-sm:           $border-radius-sm;
+$alert-font-size-sm:               $font-size-sm;
+$alert-dismissible-padding-r-sm:   $alert-padding-x-sm * 2.25;
+$alert-padding-y-lg:               $spacer * .84375;
+$alert-padding-x-lg:               $spacer * 1;
+$alert-border-radius-lg:           $border-radius-lg;
+$alert-font-size-lg:               $font-size-lg;
+$alert-dismissible-padding-r-lg:   $alert-padding-x-lg * 2.25;
+// scss-docs-end alert-variables
+
+// scss-docs-start form-input-variables
+$form-check-input-box-shadow: $input-box-shadow;
+// scss-docs-end form-input-variables
+
+// scss-docs-start form-floating-variables
+$form-floating-label-focus-color: $interactive;
+$form-floating-label-weight: $font-weight-medium;
+$form-floating-label-color: $gray-700;
+$form-floating-label-disabled-color: $gray-500;
+
+$form-floating-input-border-radius: $btn-border-radius-lg;
+$form-floating-input-border-radius-lg: $btn-border-radius-xl;
+$form-floating-input-lg-padding-t: $form-floating-input-padding-t;
+$form-floating-input-lg-padding-b: $form-floating-input-padding-b;
+$form-floating-label-lg-font-size: $font-size-lg;
+$form-floating-label-lg-transform:  scale(.7777) translateY(-.8rem) translateX(.3rem);
+$form-floating-input-padding-x: $input-padding-x-lg;
+$form-floating-input-padding-x-lg: $form-floating-input-padding-x;
+$form-floating-padding-x-lg: $input-padding-x-lg;
+$form-floating-padding-y-lg: rfs-value(12px);
+// scss-docs-end form-floating-variables
+
+// scss-docs-start form-select-variables
+$form-select-padding-b-lg: .5625rem;
+$form-select-padding-b-sm: .25rem;
+$form-select-focus-indicator-color: $interactive;
+$form-select-focus-indicator: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill='none' stroke='#{$form-select-focus-indicator-color}' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/></svg>");
+$form-select-disabled-indicator-color: $gray-300;
+$form-select-disabled-indicator: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill='none' stroke='#{$form-select-disabled-indicator-color}' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/></svg>");
+$form-select-invalid-indicator-color: $danger;
+$form-select-invalid-indicator: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill='none' stroke='#{$form-select-invalid-indicator-color}' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/></svg>");
+// scss-docs-end form-select-variables
+
+
+$form-check-input-width-sm:                     1.5em;
+$form-check-margin-bottom-sm:                   rfs-value(16px);
+$form-check-padding-start-sm:                   $form-check-input-width-sm + 1em;
+$form-check-input-disabled-bg:                  $gray-300;
+$form-check-input-disabled-border-color:        $gray-300;
+$form-check-label-disabled-color:               $gray-600;
+$form-check-radio-checked-disabled-bg-image:    url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='2' fill='#{$form-check-input-disabled-bg}'/></svg>");
+// scss-docs-end form-check-variables
+
+// scss-docs-start form-encapsulated-check-variables
+$form-check-encapsulated-border:                rfs-value(2px) solid $gray-200;
+$form-check-encapsulated-border-radius:         $btn-border-radius-lg;
+$form-check-encapsulated-hover-color:           $interactive-50;
+$form-check-encapsulated-bg:                    $white;
+$form-check-encapsulated-checked-border-color:  $form-check-input-checked-bg-color;
+$form-check-encapsulated-padding:               .8125em;
+$form-check-encapsulated-padding-lg:            .9167em;
+$form-check-encapsulated-border-radius-lg:      $btn-border-radius-xl;
+$form-check-encapsulated-font-size-lg:          1.125em;
+// scss-docs-end form-encapsulated-check-variables
+
+// scss-docs-start spinner-variables
+$spinner-width-lg:        rfs-value(96px);
+$spinner-height-lg:       $spinner-width-lg;
+$spinner-border-width-lg: .3em;
+// scss-docs-end spinner-variables
+
+// Close
+
+// scss-docs-start close-variables
+$btn-close-shadow: $input-box-shadow;
+// scss-docs-end close-variables

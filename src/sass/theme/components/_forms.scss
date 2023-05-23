@@ -1,0 +1,213 @@
+// stylelint-disable selector-class-pattern
+// stylelint-disable selector-no-qualifying-type
+.gform_wrapper {
+  margin-bottom: $spacer;
+  text-align: left;
+
+  /* Layout
+  -------------------------------------------------------------- */
+  .gform_fields {
+    @extend .row;
+    .gsection {
+      @include margin-top($spacer !important);
+      @include margin-bottom($spacer * 2 !important);
+    }
+    .gfield {
+      @include make-col-ready();
+      margin-top: 0;
+      @extend .mb-3;
+    }
+    .gfield--width-quarter {
+      @include media-breakpoint-up(sm) {
+        @include make-col(6);
+      }
+      @include media-breakpoint-up(md) {
+        @include make-col(3);
+      }
+    }
+
+    .gfield--width-third {
+      @include media-breakpoint-up(md) {
+        @include make-col(4);
+      }
+    }
+    .gfield--width-five-twelfths {
+      @include media-breakpoint-up(md) {
+        @include make-col(5);
+      }
+    }
+    .gfield--width-half {
+      @include media-breakpoint-up(md) {
+        @include make-col(6);
+      }
+    }
+    .gfield--width-seven-twelfths {
+      @include media-breakpoint-up(md) {
+        @include make-col(7);
+      }
+    }
+    .gfield--width-two-thirds {
+      @include media-breakpoint-up(md) {
+        @include make-col(8);
+      }
+    }
+    .gfield--width-three-quarter {
+      @include media-breakpoint-up(md) {
+        @include make-col(9);
+      }
+    }
+    .gfield--width-five-sixths {
+      @include media-breakpoint-up(md) {
+        @include make-col(10);
+      }
+    }
+    .gfield--width-eleven-twelfths {
+      @include media-breakpoint-up(md) {
+        @include make-col(11);
+      }
+    }
+    .gfield--width-full {
+      @include media-breakpoint-up(md) {
+        @include make-col(12);
+      }
+    }
+  }
+
+  .form-select.empty {
+    color: $gray-600;
+  }
+
+  /* Heading
+  -------------------------------------------------------------- */
+  .gform_heading {
+    .gform_description {
+      display: block;
+    }
+  }
+
+  .gform_body {
+    margin-bottom: 1rem;
+  }
+
+  // Custom Ajax Spinner.
+  @keyframes ajax-spinner {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  .form-label {
+    font-size: $font-size-base;
+    font-weight: $font-weight-bold;
+  }
+  .hidden_label {
+    .form-label {
+      @extend .visually-hidden;
+    }
+  }
+
+  .gform_ajax_spinner {
+    @extend .spinner-border;
+    @extend .spinner-border-sm;
+    margin-left: 1rem;
+
+    background-color: $interactive;
+  }
+
+  // Hidden
+  .gform_validation_container, // anti-spam honeypot
+  .gform_hidden {
+    @extend .visually-hidden;
+  }
+
+  // Validation
+  .gfield_required {
+    color: $danger;
+  }
+
+  .gform_validation_errors {
+    @extend .alert;
+    @extend .alert-danger;
+    font-size: $font-size-sm;
+
+    .gform_submission_error {
+      font-size: $font-size-sm;
+    }
+
+    ol {
+      margin: 0;
+    }
+
+    .gform_validation_error_link {
+      @extend .alert-link;
+      font-weight: 400;
+    }
+  }
+
+  select[aria-invalid="true"],
+  textarea[aria-invalid="true"],
+  input[aria-invalid="true"] {
+    border-color: rgba($form-feedback-invalid-color, 1);
+  }
+}
+
+/* Widget
+-------------------------------------------------------------- */
+.gform_widget {
+  textarea,
+  input[type="text"],
+  input[type="email"],
+  input[type="url"],
+  input[type="search"],
+  input[type="number"],
+  input[type="tel"] {
+    @extend .form-control-sm;
+  }
+
+  .gform_button {
+    @extend .btn-sm;
+  }
+}
+
+/* Reset :disabled when viewing the form with shortcode preview
+-------------------------------------------------------------- */
+.mce-content-body {
+  .form-control,
+  .form-select {
+    &:disabled {
+      background-color: $input-bg;
+    }
+  }
+}
+
+/* Confirmation
+-------------------------------------------------------------- */
+.gform_confirmation_wrapper {
+  @extend .alert;
+  @extend .alert-secondary;
+}
+
+.small {
+  .form-check {
+    @extend .form-check-sm;
+  }
+}
+
+.ginput_complex {
+  span:first-child {
+    @include media-breakpoint-down(md) {
+      margin-bottom: $spacer;
+    }
+  }
+}
+.instruction.validation_message {
+  margin-top: $spacer * .25;
+  margin-left: $spacer * .25;
+  font-size: $font-size-sm;
+  color: $gray-600;
+}
+.gform_required_legend {
+  @extend .visually-hidden;
+}

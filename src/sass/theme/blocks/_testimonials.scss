@@ -1,0 +1,172 @@
+.testimonials-block {
+  .testimonial-holder {
+    @include transition( all ease .2s);
+    @include padding($spacer * 8.125 0);
+    @include media-breakpoint-down(md) {
+      padding-top: 0;
+      @include margin-top($spacer * 10.5);
+    }
+
+    &::before {
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: -1;
+      height: 100%;
+      content: "";
+      background-image: url($testimonial-pixel-bg);
+      background-repeat: no-repeat;
+      background-position-x: -230px;
+      background-position-y: bottom;
+      background-size: 100%;
+      @include border-radius($border-radius-3xl);
+      @include make-col-ready();
+      @include make-col(9);
+      opacity: .6;
+      @include media-breakpoint-down(xxl) {
+        background-position-x: -360px;
+        background-size: 140%;
+      }
+      @include media-breakpoint-down(md) {
+        @include make-col(12);
+        background-position-x: -63vh;
+        background-position-y: 180px;
+        background-size: cover;
+      }
+    }
+    &::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: -2;
+      height: 100%;
+      content: "";
+      background-color: $primary;
+      @include border-radius($border-radius-3xl);
+      @include make-col-ready();
+      @include make-col(9);
+      @include media-breakpoint-down(md) {
+        @include make-col(12);
+      }
+    }
+  }
+  .carousel-inner {
+    @include transition( all ease .2s);
+    @include media-breakpoint-down(md) {
+      //stylelint-disable-next-line declaration-no-important
+      overflow: visible !important;
+    }
+
+    .carousel-item {
+      @include media-breakpoint-up(md) {
+        height: 100%;
+      }
+      &.active {
+        // stylelint-disable-next-line declaration-no-important
+        display: flex !important;
+      }
+    }
+    .text-content {
+      display: flex;
+      align-items: center;
+      @include media-breakpoint-down(md) {
+        margin: 0 auto;
+      }
+      @media (max-width: 375px) {
+        @include make-col(11);
+        margin-left: $spacer * 1.5625;
+      }
+    }
+
+    .content-container {
+      h6 {
+        margin: 0 0 $spacer * 2;
+        font-size: $sub-sup-font-size;
+        color: $secondary;
+        text-transform: uppercase;
+        letter-spacing: .5em;
+      }
+
+      h1,
+      h2 {
+        margin: 0 0 $spacer * 2;
+        color: $white;
+      }
+
+      h4 {
+        margin-bottom: 0;
+        font-weight: $font-weight-bold;
+        color: $white;
+      }
+
+      p {
+        font-weight: $font-weight-bold;
+        color: $white;
+      }
+    }
+
+    .image-container {
+      width: 100%;
+      overflow: hidden;
+      @include border-radius($border-radius-pill);
+      @include media-breakpoint-down(md) {
+        width: 296px;
+        margin: -148px auto $spacer * 2;
+      }
+      @include media-breakpoint-down(sm) {
+        float: right;
+        width: 164px;
+        margin-top: -82px;
+      }
+      @media (max-width: 375px) {
+        width: 100px;
+        margin-top: -50px;
+      }
+
+      img {
+        object-fit: cover;
+        height: 100%;
+      }
+    }
+  }
+  .carousel-controls-holder {
+    position: absolute;
+    right: $spacer * 4.5;
+    bottom: $spacer * 4.5;
+    width: 143px;
+    @include media-breakpoint-down(sm) {
+      right: $spacer * 1.5;
+      bottom: $spacer * 1.5;
+    }
+
+    .carousel-count {
+      font-size: $font-size-sm;
+      font-weight: $font-weight-medium;
+      color: $white;
+      text-align: center;
+    }
+
+    button {
+      opacity: 1;
+
+      i {
+        width: rfs-value(32px);
+        height: rfs-value(32px);
+        padding: rfs-value(9px) rfs-value(10px);
+        font-size: $font-size-sm;
+        color: $white;
+        background: rgba($white, .15);
+        @include border-radius($border-radius-pill);
+        @include transition( all ease .2s);
+      }
+
+      &:hover {
+        i {
+          color: $interactive;
+          background-color: $white;
+          @include transition( all ease .2s);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,52 @@
+@mixin custom-button-outline-variant(
+  $color,
+  $btn-color: $color,
+  $btn-border: $color,
+  $color-hover: $color,
+  $hover-background: tint-color($color, 90%),
+  $hover-border: $color,
+  $active-background: shade-color($color, 20%),
+  $active-border: shade-color($color, 20%),
+  $active-color: color-contrast($active-background),
+  $disabled-color: $gray-600,
+  $disabled-border: $gray-600,
+) {
+  --#{$prefix}btn-color: #{$btn-color};
+  --#{$prefix}btn-border-color: #{$btn-border};
+  --#{$prefix}btn-hover-color: #{$color-hover};
+  --#{$prefix}btn-hover-bg: #{$hover-background};
+  --#{$prefix}btn-hover-border-color: #{$hover-border};
+  --#{$prefix}btn-focus-shadow-rgb: #{to-rgb($color)};
+  --#{$prefix}btn-active-color: #{$active-color};
+  --#{$prefix}btn-active-bg: #{$active-background};
+  --#{$prefix}btn-active-border-color: #{$active-border};
+  --#{$prefix}btn-active-shadow: #{$btn-active-box-shadow};
+  --#{$prefix}btn-disabled-color: #{disabled-$color};
+  --#{$prefix}btn-disabled-bg: transparent;
+  --#{$prefix}btn-disabled-border-color: #{$disabled-border};
+  --#{$prefix}gradient: none;
+}
+
+@mixin button-link-variant(
+  $color,
+  $hover-background: tint-color($color, 90%),
+  $active-background: shade-color($color, 20%),
+  $active-border: $color,
+  $active-color: $white,
+  $disabled-color: $gray-600
+) {
+  --#{$prefix}btn-color: #{$color};
+  --#{$prefix}btn-bg: transparent;
+  --#{$prefix}btn-border-color: transparent;
+  --#{$prefix}btn-hover-color: #{$color};
+  --#{$prefix}btn-hover-bg: #{$hover-background};
+  --#{$prefix}btn-hover-border-color: transparent;
+  --#{$prefix}btn-active-bg: #{$active-background};
+  --#{$prefix}btn-active-color: #{$active-color};
+  --#{$prefix}btn-active-border-color: transparent;
+  --#{$prefix}btn-disabled-bg: transparent;
+  --#{$prefix}btn-disabled-color: #{$disabled-color};
+  --#{$prefix}btn-disabled-border-color: transparent;
+  --#{$prefix}btn-focus-shadow-rgb: #{to-rgb(mix(color-contrast($primary), $primary, 15%))};
+  text-decoration: none;
+}

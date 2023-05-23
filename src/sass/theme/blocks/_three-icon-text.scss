@@ -1,0 +1,74 @@
+.three-icon-text {
+  text-align: center;
+
+  h1 {
+    @include margin-bottom($spacer * 4);
+  }
+
+  .tiles {
+    background-color: $white;
+    @include border-radius($border-radius-3xl);
+    @include padding($spacer * 3);
+
+    .tile-holder {
+      text-align: center;
+      border-right: rfs-value(1px) solid $dove-400;
+      @include media-breakpoint-down(md) {
+        border-right: 0;
+        border-bottom: rfs-value(1px) solid $dove-400;
+      }
+
+      &:first-child {
+        @include padding-right($spacer * 3);
+        @include media-breakpoint-down(md) {
+          // stylelint-disable-next-line function-disallowed-list
+          padding-right: calc(var(--#{$prefix}gutter-x) * .5);
+          @include padding-bottom($spacer * 3);
+        }
+      }
+
+      &:not(:last-child):not(:first-child) {
+        @include padding(0 $spacer * 3);
+        @include media-breakpoint-down(md) {
+          // stylelint-disable-next-line function-disallowed-list
+          padding-right: calc(var(--#{$prefix}gutter-x) * .5);
+          // stylelint-disable-next-line function-disallowed-list
+          padding-left: calc(var(--#{$prefix}gutter-x) * .5);
+          @include padding-top($spacer * 3);
+          @include padding-bottom($spacer * 3);
+        }
+      }
+
+      &:last-child {
+        border-right: 0;
+        @include padding-left($spacer * 3);
+        @include media-breakpoint-down(md) {
+          // stylelint-disable-next-line function-disallowed-list
+          padding-left: calc(var(--#{$prefix}gutter-x) * .5);
+          border-bottom: 0;
+          @include padding-top($spacer * 3);
+        }
+      }
+
+      .icon-container {
+        @include margin-bottom($spacer * 2);
+        // stylelint-disable-next-line selector-max-compound-selectors
+        i {
+          font-size: rfs-value(48px);
+        }
+      }
+
+      h4 {
+        @include margin-bottom($spacer);
+      }
+
+      p {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .legal {
+    @include margin-top($spacer * 3);
+  }
+}

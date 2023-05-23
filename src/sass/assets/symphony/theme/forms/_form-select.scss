@@ -1,0 +1,35 @@
+.form-select-sm {
+  padding-bottom: $form-select-padding-b-sm;
+}
+
+.form-select-lg {
+  padding-bottom: $form-select-padding-b-lg;
+  @include font-size($form-select-font-size-lg);
+}
+
+.form-select {
+  @include box-shadow(none);
+  &:focus {
+    @if $enable-shadows {
+      box-shadow: $form-select-box-shadow, $form-select-focus-box-shadow;
+    } @else {
+      // Avoid using mixin so we can pass custom focus shadow properly
+      box-shadow: $form-select-focus-box-shadow;
+    }
+  }
+
+  &:not(:invalid):not(.is-invalid) {
+    &:focus {
+      background-image: escape-svg($form-select-focus-indicator);
+    }
+
+    &:disabled {
+      background-image: escape-svg($form-select-disabled-indicator);
+    }
+  }
+
+  &:invalid,
+  &.is-invalid {
+    background-image: escape-svg($form-select-invalid-indicator);
+  }
+}

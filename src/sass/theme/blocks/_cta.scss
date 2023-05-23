@@ -1,0 +1,20 @@
+.cta {
+  .cta-holder {
+    position: relative;
+    background-color: $primary;
+    @include border-radius($border-radius-3xl);
+    @include padding($spacer * 4 $spacer * 6.875 $spacer * 4.625 $spacer * 6.875);
+    h1 {
+      color: $white;
+      text-align: center;
+    }
+    a {
+      position: absolute;
+      bottom: -28px;
+      display: block;
+      width: fit-content;
+      margin: 0 auto;
+      text-align: center;
+    }
+  }
+}

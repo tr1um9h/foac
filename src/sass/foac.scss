@@ -1,0 +1,44 @@
+@import "theme/utilities/overrides";
+@import "assets/symphony/symphony";
+@import "assets/understrap/theme/understrap";  // <------- Loads the Understrap defaults. Just a few classes to incorporate BS in WP
+@import "theme/utilities/settings";
+
+// Any additional imported files //
+@import "assets/understrap/theme/colors";           // <-------- This creates the necessary bootstrap color classes.
+@import "assets/understrap/theme/blocks";           // <-------- This adds Bootstrap styles to blocks.
+
+// Components //
+@import "theme/components/icons";
+@import "theme/components/pixels";
+@import "theme/components/forms";
+@import "theme/components/modal";
+
+// Layout //
+@import "theme/layout/header";
+@import "theme/layout/footer";
+
+// Pages //
+@import "theme/pages/404";
+@import "theme/pages/privacy";
+@import "theme/pages/okta-help";
+
+// Blocks //
+@import "theme/blocks/four-column-text-icon";
+@import "theme/blocks/hero";
+@import "theme/blocks/image-content";
+@import "theme/blocks/testimonials";
+@import "theme/blocks/three-image-text";
+@import "theme/blocks/three-icon-text";
+@import "theme/blocks/form";
+@import "theme/blocks/image-background-tile";
+@import "theme/blocks/text-image-collage";
+@import "theme/blocks/link-tiles";
+@import "theme/blocks/multi-cta";
+@import "theme/blocks/card-tiles";
+@import "theme/blocks/cta";
+@import "theme/blocks/disclaimer";
+@import "theme/blocks/bio-tiles";
+@import "theme/blocks/three-col-row";
+@import "theme/blocks/table";
+@import "theme/blocks/privacy-tiles";
+@import "theme/blocks/content";

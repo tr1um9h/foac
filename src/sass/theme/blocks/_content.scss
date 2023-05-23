@@ -1,0 +1,15 @@
+.content {
+  h1 {
+    @include margin-bottom($spacer);
+  }
+  p {
+    margin-bottom: 0;
+  }
+}
+.parent-page-privacy-policy {
+  .content {
+    > .container {
+      display: none;
+    }
+  }
+}
